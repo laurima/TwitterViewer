@@ -1,0 +1,22 @@
+﻿<Window x:Class="TwitterViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TwitterViewer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <!-- Followed twitter users appears here -->
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <!-- Categories appears here -->
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <!-- Tweets by selected user or category appears here -->
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
