@@ -23,7 +23,7 @@ User can
 
 - C# and WPF
 - Twitter api
-- (MySql)
+- MySql if there is time
 - 
 
 ###[Mockup](https://www.fluidui.com/editor/live/preview/p_ATuJSUaPk9wtTt78KovlDBSTf5r2qsds.1458707283154)
