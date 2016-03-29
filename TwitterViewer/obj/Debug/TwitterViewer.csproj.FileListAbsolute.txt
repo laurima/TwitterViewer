@@ -1,2 +1,3 @@
 e:\documents\visual studio 2015\Projects\TwitterViewer\TwitterViewer\bin\Debug\TwitterViewer.exe.config
 E:\Documents\GitHub\TwitterViewer\TwitterViewer\bin\Debug\TwitterViewer.exe.config
+Z:\GitHub\TwitterViewer\TwitterViewer\bin\Debug\TwitterViewer.exe.config
