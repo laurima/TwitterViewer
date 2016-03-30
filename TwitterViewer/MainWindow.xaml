@@ -5,18 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TwitterViewer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="900">
+        Title="MainWindow" Height="500" Width="1100">
+
+    <Window.Resources>
+        <Style x:Key="listStyle" TargetType="ListBox">
+            <Setter Property="Background" Value="LightBlue" />
+            <!--<Setter Property="FontStyle" Value="Italic" /> -->
+            <Setter Property="Padding" Value="8,4" />
+            <Setter Property="Margin" Value="4" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" >
             <StackPanel Orientation="Vertical">
                 <!-- Followed twitter users appears here -->
+                <ListBox Style="{StaticResource listStyle}" x:Name="lb_followedusers" ItemsSource="{Binding}" MaxWidth="100" />
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <!-- Categories appears here -->
+                <ListBox Style="{StaticResource listStyle}" x:Name="lb_categories" ItemsSource="{Binding}" />
+                <Button x:Name="btn_editcategories" Content="Edit Categories" VerticalAlignment="Bottom" MaxWidth="100" Click="btn_editcategories_Click"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <!-- Tweets by selected user or category appears here -->
-                <ListBox x:Name="selectedtweets" ItemsSource="{Binding}" />
+                <ListBox Style="{StaticResource listStyle}" x:Name="lb_selectedtweets" ItemsSource="{Binding}" MaxWidth="900" />
             </StackPanel>
         </StackPanel>
     </Grid>
