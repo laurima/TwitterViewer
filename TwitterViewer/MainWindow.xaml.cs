@@ -38,5 +38,10 @@ namespace TwitterViewer
             } */
         }
 
+        private void btn_editcategories_Click(object sender, RoutedEventArgs e)
+        {
+            var testitem2 = "category";
+            lb_categories.Items.Add(testitem2);
+        }
     }
 }

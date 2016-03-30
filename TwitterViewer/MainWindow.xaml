@@ -24,7 +24,7 @@
         <StackPanel Orientation="Horizontal" >
             <StackPanel Orientation="Vertical">
                 <!-- Followed twitter users appears here -->
-                <ListBox Style="{StaticResource listStyle}" x:Name="lb_followedusers" ItemsSource="{Binding}" MaxWidth="100" />
+                <ListBox Style="{StaticResource listStyle}" x:Name="lb_followedusers" ItemsSource="{Binding}" MinWidth="100" MaxWidth="100" />
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <!-- Categories appears here -->
