@@ -48,22 +48,22 @@ namespace TwitterViewer
             }
             
         }
-
+        // 2216257297
         public static List<string> getFollowedUsers()
         {
             List<string> followedusers = new List<string>();
             try
             {
-                var users = service.ListSubscriptions(new ListSubscriptionsOptions());
+
+                var users = service.ListFriends(new ListFriendsOptions());
+
                 foreach (var user in users)
                 {
-                    if (user.ToString().Length > 0)
-                    {
-                        followedusers.Add(user.ToString());
-                    }
-                        
+                    followedusers.Add(user.ScreenName);    
                 }
+
                 return followedusers;
+
             }
             catch (Exception ex)
             {
