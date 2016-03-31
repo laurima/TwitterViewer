@@ -24,16 +24,36 @@
         <StackPanel Orientation="Horizontal" >
             <StackPanel Orientation="Vertical">
                 <!-- Followed twitter users appears here -->
-                <ListBox Style="{StaticResource listStyle}" x:Name="lb_followedusers" ItemsSource="{Binding}" MinWidth="100" MaxWidth="100" />
+                <ListView Style="{StaticResource listStyle}" 
+                          x:Name="lw_followedusers" 
+                          ItemsSource="{Binding}"
+                          MinWidth="100" 
+                          RenderOptions.BitmapScalingMode="LowQuality"
+                          VerticalAlignment="Top"
+                          Margin="0,0,0,0"
+                          HorizontalAlignment="Center"
+                          Width="32"
+                          Height="32"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <!-- Categories appears here -->
-                <ListBox Style="{StaticResource listStyle}" x:Name="lb_categories" ItemsSource="{Binding}" />
-                <Button x:Name="btn_editcategories" Content="Edit Categories" VerticalAlignment="Bottom" MaxWidth="100" Click="btn_editcategories_Click"/>
+                <ListBox Style="{StaticResource listStyle}" 
+                         x:Name="lb_categories" 
+                         ItemsSource="{Binding}" />
+                <Button x:Name="btn_editcategories" 
+                        Content="Edit Categories" 
+                        VerticalAlignment="Bottom" 
+                        MaxWidth="100" 
+                        Click="btn_editcategories_Click"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <!-- Tweets by selected user or category appears here -->
-                <ListBox Style="{StaticResource listStyle}" x:Name="lb_selectedtweets" ItemsSource="{Binding}" MaxWidth="900" />
+                <ListView>
+                    Style="{StaticResource listStyle}" 
+                    MaxWidth="900" 
+                    x:Name="lw_selectedtweets"
+                </ListView>
+                
             </StackPanel>
         </StackPanel>
     </Grid>

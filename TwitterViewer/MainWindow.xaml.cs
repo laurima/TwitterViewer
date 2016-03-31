@@ -26,8 +26,25 @@ namespace TwitterViewer
         {
             InitializeComponent();
             BLTwitterViewer.authenticate();
+            createListViewColumns();
             listHomeLineTweets();
             listFollowedUsers();
+        }
+
+        public void createListViewColumns()
+        {   //Add columns to userlisting
+            var gridView = new GridView();
+            this.lw_followedusers.View = gridView;
+            gridView.Columns.Add(new GridViewColumn
+            {
+                DisplayMemberBinding = new Binding("userPic")
+            });
+            gridView.Columns.Add(new GridViewColumn
+            {
+                DisplayMemberBinding = new Binding("userName")
+            });
+
+            this.lw_followedusers.Items.Add(new userListItem { userPic = "https://twitter.com/isaach/profile_image?size=original", userName = "David" });
         }
 
         public void listHomeLineTweets()
@@ -42,7 +59,7 @@ namespace TwitterViewer
 
                         ListBoxItem item = new ListBoxItem();
                         item.Content = tweet.ToString();
-                        lb_selectedtweets.Items.Add(item);
+                        lw_selectedtweets.Items.Add(item);
 
                     }
                 }
@@ -66,7 +83,7 @@ namespace TwitterViewer
 
                         ListBoxItem item = new ListBoxItem();
                         item.Content = user;
-                        lb_followedusers.Items.Add(item);
+                        lw_followedusers.Items.Add(item);
                     }
                 }
                 catch (Exception ex)
@@ -82,5 +99,11 @@ namespace TwitterViewer
             var testitem2 = "category";
             lb_categories.Items.Add(testitem2);
         }
+    }
+
+    internal class userListItem
+    {
+        public string userName { get; set; }
+        public string userPic { get; set; }
     }
 }
