@@ -28,36 +28,47 @@ namespace TwitterViewer
             try
             {
                 var tweets = service.ListTweetsOnHomeTimeline(new ListTweetsOnHomeTimelineOptions());
+
                 foreach (var tweet in tweets)
                 {
-                    //Console.WriteLine("{0} says '{1}'", tweet.User.ScreenName, tweet.Text);
-                    homelinetweets.Add(new Tweet(tweet.User.ScreenName, tweet.Text));
+                    if (tweet.Id != 0)
+                    {
+                        //Console.WriteLine("{0} says '{1}'", tweet.User.ScreenName, tweet.Text);
+                        homelinetweets.Add(new Tweet(tweet.User.ScreenName, tweet.Text));
+                    }
+                    
+                    
                 }
                 return homelinetweets;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return null;
+                return homelinetweets;
             }
+            
         }
-
+        // 2216257297
         public static List<string> getFollowedUsers()
         {
             List<string> followedusers = new List<string>();
             try
             {
-                var users = service.ListSubscriptions(new ListSubscriptionsOptions());
+
+                var users = service.ListFriends(new ListFriendsOptions());
+
                 foreach (var user in users)
                 {
-                    followedusers.Add(user.ToString());
+                    followedusers.Add(user.ScreenName);    
                 }
+
                 return followedusers;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return null;
+                return followedusers;
             }
         }
 
