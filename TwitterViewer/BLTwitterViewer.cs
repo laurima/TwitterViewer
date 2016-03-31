@@ -28,18 +28,25 @@ namespace TwitterViewer
             try
             {
                 var tweets = service.ListTweetsOnHomeTimeline(new ListTweetsOnHomeTimelineOptions());
+
                 foreach (var tweet in tweets)
                 {
-                    //Console.WriteLine("{0} says '{1}'", tweet.User.ScreenName, tweet.Text);
-                    homelinetweets.Add(new Tweet(tweet.User.ScreenName, tweet.Text));
+                    if (tweet.Id != 0)
+                    {
+                        //Console.WriteLine("{0} says '{1}'", tweet.User.ScreenName, tweet.Text);
+                        homelinetweets.Add(new Tweet(tweet.User.ScreenName, tweet.Text));
+                    }
+                    
+                    
                 }
                 return homelinetweets;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return null;
+                return homelinetweets;
             }
+            
         }
 
         public static List<string> getFollowedUsers()
@@ -50,14 +57,18 @@ namespace TwitterViewer
                 var users = service.ListSubscriptions(new ListSubscriptionsOptions());
                 foreach (var user in users)
                 {
-                    followedusers.Add(user.ToString());
+                    if (user.ToString().Length > 0)
+                    {
+                        followedusers.Add(user.ToString());
+                    }
+                        
                 }
                 return followedusers;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return null;
+                return followedusers;
             }
         }
 

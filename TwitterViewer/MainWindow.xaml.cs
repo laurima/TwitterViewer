@@ -63,7 +63,6 @@ namespace TwitterViewer
                 {
                     foreach (var user in users)
                     {
-
                         ListBoxItem item = new ListBoxItem();
                         item.Content = user;
                         lb_followedusers.Items.Add(item);
