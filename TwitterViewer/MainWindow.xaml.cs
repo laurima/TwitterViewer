@@ -25,17 +25,56 @@ namespace TwitterViewer
         public MainWindow()
         {
             InitializeComponent();
+            BLTwitterViewer.authenticate();
+            listHomeLineTweets();
+            listFollowedUsers();
         }
 
         public void listHomeLineTweets()
         {
-            /* List<Tweet> tweets = TwitterViewer.BLTwitterViewer.getUserTimeLine();
-            foreach (var tweet in tweets)
+            List<Tweet> tweets = BLTwitterViewer.getUserTimeLine();
+            if (tweets.Count > 0 && tweets != null)
             {
-                ListBoxItem item = new ListBoxItem();
-                item.Content = tweet.ToString();
-                selectedtweets.Items.Add(item);
-            } */
+                try
+                {
+                    foreach (Tweet tweet in tweets)
+                    {
+
+                        ListBoxItem item = new ListBoxItem();
+                        item.Content = tweet.ToString();
+                        lb_selectedtweets.Items.Add(item);
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            
+        }
+
+        public void listFollowedUsers()
+        {
+            List<string> users = BLTwitterViewer.getFollowedUsers();
+            if (users.Count > 0 && users != null)
+            {
+                try
+                {
+                    foreach (var user in users)
+                    {
+
+                        ListBoxItem item = new ListBoxItem();
+                        item.Content = user;
+                        lb_followedusers.Items.Add(item);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }  
+            
         }
 
         private void btn_editcategories_Click(object sender, RoutedEventArgs e)

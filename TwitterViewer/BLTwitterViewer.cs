@@ -8,10 +8,10 @@ using TweetSharp;
 
 namespace TwitterViewer
 {
-    class BLTwitterViewer
+    static class BLTwitterViewer
     {
-        TwitterService service;
-        public void authenticate()
+        static TwitterService service;
+        public static void authenticate()
         {
             string _consumerKey = "hDfxDffMyp3xmnAFcCMM9IzuH";
             string _consumerSecret = "ic6M72jx7WcDtICakJHmXkehilHtxJ1sWgKC84dkujlPG9n8Fv";
@@ -22,7 +22,7 @@ namespace TwitterViewer
             service.AuthenticateWith(_accessToken, _accessTokenSecret);
         }
 
-        public List<Tweet> getUserTimeLine()
+        public static List<Tweet> getUserTimeLine()
         {
             List<Tweet> homelinetweets = new List<Tweet>();
             try
@@ -34,6 +34,25 @@ namespace TwitterViewer
                     homelinetweets.Add(new Tweet(tweet.User.ScreenName, tweet.Text));
                 }
                 return homelinetweets;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+        public static List<string> getFollowedUsers()
+        {
+            List<string> followedusers = new List<string>();
+            try
+            {
+                var users = service.ListSubscriptions(new ListSubscriptionsOptions());
+                foreach (var user in users)
+                {
+                    followedusers.Add(user.ToString());
+                }
+                return followedusers;
             }
             catch (Exception ex)
             {
