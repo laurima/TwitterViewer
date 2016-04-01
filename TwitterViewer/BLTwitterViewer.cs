@@ -55,11 +55,12 @@ namespace TwitterViewer
             try
             {
 
-                var users = service.ListFriends(new ListFriendsOptions());
+                var friendids = service.ListFriendIdsOf(new ListFriendIdsOfOptions());
 
-                foreach (var user in users)
+                for (int id = 0; id > friendids.Count; id++)
                 {
-                    followedusers.Add(user.ScreenName);    
+                    TwitterFriendship info = service.GetFriendshipInfo(new GetFriendshipInfoOptions { TargetId = friendids[id].ToString() });
+                    followedusers.Add(info.Relationship.Source.ScreenName);
                 }
 
                 return followedusers;
