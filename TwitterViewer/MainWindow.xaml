@@ -5,12 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TwitterViewer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="1100">
+        Title="MainWindow" Height="500" MinWidth="400" MaxWidth="1900">
 
     <Window.Resources>
         <Style x:Key="listStyle" TargetType="ListBox">
             <Setter Property="Background" Value="LightBlue" />
-            <!--<Setter Property="FontStyle" Value="Italic" /> -->
             <Setter Property="Padding" Value="8,4" />
             <Setter Property="Margin" Value="4" />
             <Style.Triggers>
@@ -21,7 +20,7 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <StackPanel Orientation="Horizontal" >
+        <StackPanel Orientation="Horizontal" MinWidth="800">
             <StackPanel Orientation="Vertical">
                 <!-- Followed twitter users appears here -->
                 <ListView Style="{StaticResource listStyle}" 
@@ -31,11 +30,9 @@
                           RenderOptions.BitmapScalingMode="LowQuality"
                           VerticalAlignment="Top"
                           Margin="0,0,0,0"
-                          HorizontalAlignment="Center"
-                          Width="32"
-                          Height="32"/>
+                          HorizontalAlignment="Center"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" MinWidth="100" MaxWidth="200">
                 <!-- Categories appears here -->
                 <ListBox Style="{StaticResource listStyle}" 
                          x:Name="lb_categories" 
@@ -43,17 +40,20 @@
                 <Button x:Name="btn_editcategories" 
                         Content="Edit Categories" 
                         VerticalAlignment="Bottom" 
-                        MaxWidth="100" 
+                        MaxWidth="100"
                         Click="btn_editcategories_Click"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" MinWidth="100" MaxWidth="900" >
                 <!-- Tweets by selected user or category appears here -->
-                <ListView 
-                    Style="{StaticResource listStyle}" 
-                    MaxWidth="900" 
-                    x:Name="lw_selectedtweets"/>
-
-
+                <ListView Style="{StaticResource listStyle}">
+                    <ListViewItem>
+                        <StackPanel Orientation="Horizontal">
+                            <Image x:Name="img_selectedtweetsimg"></Image>
+                            <TextBlock x:Name="tb_selectedtweets"></TextBlock>
+                        </StackPanel>
+                    </ListViewItem>
+                     
+                </ListView>
             </StackPanel>
         </StackPanel>
     </Grid>
