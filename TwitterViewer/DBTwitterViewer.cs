@@ -8,6 +8,16 @@ namespace TwitterViewer
 {
     class DBTwitterViewer
     {
+        Categories categories = new Categories();
+        categories.category = "test";
+    }
 
+    internal class Categories
+    {
+        List<Categories> categories;
+        public Categories()
+        {
+            
+        }
     }
 }
