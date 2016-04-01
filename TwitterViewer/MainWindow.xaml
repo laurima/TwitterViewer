@@ -48,12 +48,12 @@
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <!-- Tweets by selected user or category appears here -->
-                <ListView>
+                <ListView 
                     Style="{StaticResource listStyle}" 
                     MaxWidth="900" 
-                    x:Name="lw_selectedtweets"
-                </ListView>
-                
+                    x:Name="lw_selectedtweets"/>
+
+
             </StackPanel>
         </StackPanel>
     </Grid>

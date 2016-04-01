@@ -57,7 +57,7 @@ namespace TwitterViewer
                     foreach (Tweet tweet in tweets)
                     {
 
-                        ListBoxItem item = new ListBoxItem();
+                        ListBoxItem item = new tweetListItem();
                         item.Content = tweet.ToString();
                         lw_selectedtweets.Items.Add(item);
 
@@ -98,6 +98,10 @@ namespace TwitterViewer
             var testitem2 = "category";
             lb_categories.Items.Add(testitem2);
         }
+    }
+
+    internal class tweetListItem : ListBoxItem
+    {
     }
 
     internal class userListItem
