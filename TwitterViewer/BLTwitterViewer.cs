@@ -73,6 +73,27 @@ namespace TwitterViewer
             }
         }
 
+        public static List<Tweet> getTweets(string screenname)
+        {
+            List<Tweet> usertweets = new List<Tweet>();
+            try
+            {
+                var tweets = service.ListTweetsOnUserTimeline(new ListTweetsOnUserTimelineOptions { ScreenName = screenname });
+
+                foreach (var tweet in tweets)
+                {
+                    usertweets.Add(new Tweet(tweet.User.ScreenName, tweet.Text));
+                }
+                return usertweets;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return usertweets;
+            }
+            
+        }
+
     }
 
     class Tweet 
