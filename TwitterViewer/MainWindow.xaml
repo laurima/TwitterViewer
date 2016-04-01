@@ -17,13 +17,15 @@
                 <ListView Style="{StaticResource listStyle}" 
                           x:Name="lw_followedusers" 
                           ItemTemplate="{StaticResource followerTemplate}"
-                          MinWidth="100" SelectionChanged="lw_followedusers_SelectionChanged" 
+                          MinWidth="100" 
+                          MaxHeight="480"
+                          SelectionChanged="lw_followedusers_SelectionChanged" 
                           />
             </StackPanel>
             <StackPanel Orientation="Vertical" MinWidth="100" MaxWidth="200">
                 <!-- Categories appears here -->
-                <ListBox Style="{StaticResource listStyle}" 
-                         x:Name="lb_categories"
+                <ListView Style="{StaticResource listStyle}" 
+                         x:Name="lw_categories"
                          ItemsSource="{Binding}"
                          />
                 <Button x:Name="btn_editcategories" 

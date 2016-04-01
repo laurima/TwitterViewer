@@ -3,8 +3,8 @@
                     xmlns:local="clr-namespace:TwitterViewer">
 
         <DataTemplate x:Key="tweetTemplate">
-            <StackPanel Orientation="Horizontal">
-                <Image x:Name="img_selectedtweetsimg" 
+        <StackPanel Orientation="Horizontal" MaxHeight="480">
+            <Image x:Name="img_selectedtweetsimg" 
                        Stretch="Fill" 
                        Height="32" 
                        Width="32" 

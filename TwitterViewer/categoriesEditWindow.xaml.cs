@@ -32,6 +32,11 @@ namespace TwitterViewer
 
         private void btn_addcategories_Click(object sender, RoutedEventArgs e)
         {
+            //lw_categories.Items.Add(btn_addcategories); not working yet
+        }
+
+        private void lw_categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }

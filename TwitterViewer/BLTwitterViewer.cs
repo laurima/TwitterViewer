@@ -57,14 +57,14 @@ namespace TwitterViewer
                 var friendids = service.ListFriendIdsOf(new ListFriendIdsOfOptions());
 
                 // for (int id = 0; id < friendids.Count(); id++)
-                for (int id = 0; id < 20; id++)
+                for (int id = 0; id < 5; id++)
                 {
                     //MessageBox.Show(friendids[id].ToString());
                     TwitterFriendship info = service.GetFriendshipInfo(new GetFriendshipInfoOptions { SourceId = "2216257297", TargetId = friendids[id].ToString() });
                     followedusers.Add(new User(info.Relationship.Target.ScreenName));
                 }
 
-                DBTwitterViewer.SerializeFollowedUsers(followedusers);
+                //DBTwitterViewer.SerializeFollowedUsers(followedusers);
                 return followedusers;
 
             }

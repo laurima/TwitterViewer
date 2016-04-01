@@ -19,19 +19,20 @@
             <StackPanel Orientation="Vertical">
                 <TextBlock HorizontalAlignment="Center">Users</TextBlock>
                 <ListView Style="{StaticResource listStyle}" 
-                          x:Name="lw_followedusersedit" 
+                          x:Name="lw_followedusers" 
                           ItemTemplate="{StaticResource followerTemplate}"
                           MinWidth="100" 
+                          MaxHeight="480"
                           />
             </StackPanel>
             <StackPanel HorizontalAlignment="Center">
                 <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center">Categories</TextBlock>
-                <ListBox Style="{StaticResource listStyle}"
+                <ListView Style="{StaticResource listStyle}"
                     VerticalAlignment="Bottom"
-                    x:Name="lb_categories"
-                    ItemsSource="{Binding}"
+                    x:Name="lw_categories"
+                    ItemsSource="{Binding}" SelectionChanged="lw_categories_SelectionChanged"
                     />
-                <TextBox></TextBox>
+                <TextBox x:Name="tb_addcategories"></TextBox>
                     <Button x:Name="btn_addcategories" 
                         Content="Add Categories" 
                         VerticalAlignment="Bottom" 
