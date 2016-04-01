@@ -57,9 +57,9 @@ namespace TwitterViewer
                     foreach (Tweet tweet in tweets)
                     {
 
-                        ListBoxItem item = new tweetListItem();
+                        tweetListItem item = new tweetListItem();
                         item.Content = tweet.ToString();
-                        lw_selectedtweets.Items.Add(item);
+                        tb_selectedtweets.Inlines.Add(item);
 
                     }
                 }
