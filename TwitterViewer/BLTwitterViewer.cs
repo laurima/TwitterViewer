@@ -162,7 +162,6 @@ namespace TwitterViewer
         }
 
         #endregion
-
         #region CONSTRUCTOR
         public User(int id, string screenname) {
             this.id = id;
