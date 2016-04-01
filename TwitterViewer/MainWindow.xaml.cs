@@ -27,7 +27,7 @@ namespace TwitterViewer
             InitializeComponent();
             BLTwitterViewer.authenticate();
             listFollowedUsers();
-            listHomeLineTweets(); 
+            listHomeLineTweets();
         }
 
 
@@ -74,6 +74,32 @@ namespace TwitterViewer
         {
             categoriesEditWindow editWindow = new categoriesEditWindow();
             editWindow.Show();
+        }
+
+        private void lw_followedusers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            string user = lw_followedusers.SelectedItem.ToString().Split()[1];
+           
+            MessageBox.Show(user);
+            
+            List<Tweet> tweets = BLTwitterViewer.getTweets(user);
+            if (tweets.Count > 0 && tweets != null)
+            {
+                try
+                {
+                    List<Tweet> items = new List<Tweet>();
+                    foreach (Tweet tweet in tweets)
+                    {
+                        items.Add(tweet);
+                        lw_selectedtweets.ItemsSource = items;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 

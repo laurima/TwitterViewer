@@ -24,9 +24,15 @@ namespace TwitterViewer
             InitializeComponent();
         }
 
+
         private void CloseCommandHandler(object sender, ExecutedRoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_addcategories_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
