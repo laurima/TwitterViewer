@@ -33,7 +33,6 @@ namespace TwitterViewer
                 {
                     if (tweets.ElementAt(i).Id != 0)
                     {
-                        // DELETE node
                         TwitterStatus tweet = tweets.ElementAt(i);
                         homelinetweets.Add(new Tweet(new User(tweet.User.ScreenName), tweet.Text));
                     }
@@ -57,10 +56,11 @@ namespace TwitterViewer
 
                 var friendids = service.ListFriendIdsOf(new ListFriendIdsOfOptions());
 
-                for (int id = 0; id > friendids.Count; id++)
+                for (int id = 0; id < friendids.Count(); id++)
                 {
-                    TwitterFriendship info = service.GetFriendshipInfo(new GetFriendshipInfoOptions { TargetId = friendids[id].ToString() });
-                    followedusers.Add(new User(info.Relationship.Source.ScreenName));
+                    //MessageBox.Show(friendids[id].ToString());
+                    TwitterFriendship info = service.GetFriendshipInfo(new GetFriendshipInfoOptions { SourceId = "2216257297", TargetId = friendids[id].ToString() });
+                    followedusers.Add(new User(info.Relationship.Target.ScreenName));
                 }
 
                 return followedusers;
