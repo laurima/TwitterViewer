@@ -87,6 +87,7 @@
     <Compile Include="categoriesEditWindow.xaml.cs">
       <DependentUpon>categoriesEditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DBTwitterViewer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
