@@ -27,18 +27,18 @@ namespace TwitterViewer
             List<Tweet> homelinetweets = new List<Tweet>();
             try
             {
-                var tweets = service.ListTweetsOnHomeTimeline(new ListTweetsOnHomeTimelineOptions());
+                IEnumerable<TwitterStatus> tweets = service.ListTweetsOnHomeTimeline(new ListTweetsOnHomeTimelineOptions());
 
-                foreach (var tweet in tweets)
+                for (int i = 0; i < tweets.Count(); i++)
                 {
-                    if (tweet.Id != 0)
+                    if (tweets.ElementAt(i).Id != 0)
                     {
-                        //Console.WriteLine("{0} says '{1}'", tweet.User.ScreenName, tweet.Text);
-                        homelinetweets.Add(new Tweet(tweet.User.ScreenName, tweet.Text));
+                        // DELETE node
+                        TwitterStatus tweet = tweets.ElementAt(i);
+                        homelinetweets.Add(new Tweet(tweet.User.ScreenName, tweet.Text, "https://twitter.com/" + tweet.User.ScreenName + "/profile_image?size=original"));
                     }
-                    
-                    
                 }
+
                 return homelinetweets;
             }
             catch (Exception ex)
@@ -82,7 +82,7 @@ namespace TwitterViewer
 
                 foreach (var tweet in tweets)
                 {
-                    usertweets.Add(new Tweet(tweet.User.ScreenName, tweet.Text));
+                    usertweets.Add(new Tweet(tweet.User.ScreenName, tweet.Text, "https://twitter.com/" + tweet.User.ScreenName + "/profile_image?size=original"));
                 }
                 return usertweets;
             }
@@ -116,12 +116,22 @@ namespace TwitterViewer
             set { message = value; }
         }
 
+        private string profilepic;
+
+        public string Profilepic
+        {
+            get { return profilepic; }
+            set { profilepic = value; }
+        }
+
+
         #endregion
         #region CONSTRUCTOR
-        public Tweet(string user, string message)
+        public Tweet(string user, string message, string profilepic)
         {
             User = user;
             Message = message;
+            Profilepic = profilepic;
         }
         #endregion
         #region METHODS
