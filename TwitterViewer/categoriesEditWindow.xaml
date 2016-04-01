@@ -14,18 +14,18 @@
                         Executed="CloseCommandHandler"/>
     </Window.CommandBindings>
     <StackPanel x:Name="MainStackPanel" Orientation="Vertical" MinHeight="200">
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" MinHeight="200">
             <!-- Followed twitter users appears here -->
             <StackPanel Orientation="Vertical">
-                <TextBlock>Users</TextBlock>
+                <TextBlock HorizontalAlignment="Center">Users</TextBlock>
                 <ListView Style="{StaticResource listStyle}" 
                           x:Name="lw_followedusersedit" 
                           ItemTemplate="{StaticResource followerTemplate}"
                           MinWidth="100" 
                           />
             </StackPanel>
-            <StackPanel>
-                <TextBlock VerticalAlignment="Top">Categories</TextBlock>
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center">Categories</TextBlock>
                 <ListBox Style="{StaticResource listStyle}"
                     VerticalAlignment="Bottom"
                     x:Name="lb_categories"
@@ -38,6 +38,14 @@
                         MaxWidth="100" Click="btn_addcategories_Click"
                         
                         />
+            </StackPanel>
+            <StackPanel>
+                <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center">Categories</TextBlock>
+                <ListBox Style="{StaticResource listStyle}"
+                    VerticalAlignment="Bottom"
+                    x:Name="lb_categoriesAndUsers"
+                    ItemsSource="{Binding}"
+                    />
             </StackPanel>
         </StackPanel>
         <Button Command="ApplicationCommands.Close" 
