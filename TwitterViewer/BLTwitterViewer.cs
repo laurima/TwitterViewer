@@ -56,13 +56,15 @@ namespace TwitterViewer
 
                 var friendids = service.ListFriendIdsOf(new ListFriendIdsOfOptions());
 
-                for (int id = 0; id < friendids.Count(); id++)
+                // for (int id = 0; id < friendids.Count(); id++)
+                for (int id = 0; id < 20; id++)
                 {
                     //MessageBox.Show(friendids[id].ToString());
                     TwitterFriendship info = service.GetFriendshipInfo(new GetFriendshipInfoOptions { SourceId = "2216257297", TargetId = friendids[id].ToString() });
                     followedusers.Add(new User(info.Relationship.Target.ScreenName));
                 }
 
+                DBTwitterViewer.SerializeFollowedUsers(followedusers);
                 return followedusers;
 
             }
@@ -162,7 +164,6 @@ namespace TwitterViewer
         }
 
         #endregion
-
         #region CONSTRUCTOR
         public User(int id, string screenname) {
             this.id = id;

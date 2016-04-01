@@ -3,14 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace TwitterViewer
 {
-    class DBTwitterViewer
+    static class DBTwitterViewer
     {
-        public static void SerializeToJSON(List<categories>)
+        public static void SerializeCategories(List<string> categories)
         {
 
+        }
+
+        public static void SerializeFollowedUsers(List<User> users)
+        {
+            List<string> serializedobjects = new List<string>();
+            foreach (User user in users)
+            {
+                 serializedobjects.Add(JsonConvert.SerializeObject(user));
+            }
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\H8543\Test\Followedusers.json"))
+            {
+                foreach (var obj in serializedobjects)
+                {
+                    file.WriteLine(obj);
+                }
+            }
         }
 
     }
