@@ -26,26 +26,10 @@ namespace TwitterViewer
         {
             InitializeComponent();
             BLTwitterViewer.authenticate();
-            createListViewColumns();
-            listHomeLineTweets();
             listFollowedUsers();
+            listHomeLineTweets(); 
         }
 
-        public void createListViewColumns()
-        {   //Add columns to userlisting
-            var gridView = new GridView();
-            this.lw_followedusers.View = gridView;
-            gridView.Columns.Add(new GridViewColumn
-            {
-                DisplayMemberBinding = new Binding("userPic")
-            });
-            gridView.Columns.Add(new GridViewColumn
-            {
-                DisplayMemberBinding = new Binding("userName")
-            });
-
-            this.lw_followedusers.Items.Add(new userListItem { userPic = "https://twitter.com/isaach/profile_image?size=original", userName = "David" });
-        }
 
         public void listHomeLineTweets()
         {
@@ -54,13 +38,11 @@ namespace TwitterViewer
             {
                 try
                 {
+                    List<Tweet> items = new List<Tweet>();
                     foreach (Tweet tweet in tweets)
                     {
-
-                        tweetListItem item = new tweetListItem();
-                        item.Content = tweet.ToString();
-                        tb_selectedtweets.Inlines.Add(item);
-
+                        items.Add(tweet);
+                        lw_selectedtweets.ItemsSource = items;
                     }
                 }
                 catch (Exception ex)
@@ -68,29 +50,24 @@ namespace TwitterViewer
                     MessageBox.Show(ex.Message);
                 }
             }
-            
+
         }
 
         public void listFollowedUsers()
         {
-            List<string> users = BLTwitterViewer.getFollowedUsers();
+            List<User> users = BLTwitterViewer.getFollowedUsers();
             if (users.Count > 0 && users != null)
             {
                 try
                 {
-                    foreach (var user in users)
-                    {
-                        ListBoxItem item = new ListBoxItem();
-                        item.Content = user;
-                        lw_followedusers.Items.Add(item);
-                    }
+                    lw_followedusers.ItemsSource = users;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-            }  
-            
+            }
+
         }
 
         private void btn_editcategories_Click(object sender, RoutedEventArgs e)
@@ -98,10 +75,6 @@ namespace TwitterViewer
             var testitem2 = "category";
             lb_categories.Items.Add(testitem2);
         }
-    }
-
-    internal class tweetListItem : ListBoxItem
-    {
     }
 
     internal class userListItem

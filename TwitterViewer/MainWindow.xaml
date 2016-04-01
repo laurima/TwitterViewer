@@ -5,9 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TwitterViewer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" MinWidth="400" MaxWidth="1900">
+        Title="MainWindow" Height="500" MinWidth="400" MaxWidth="1400">
 
     <Window.Resources>
+        <DataTemplate x:Key="tweetTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="img_selectedtweetsimg" 
+                       Stretch="Fill" 
+                       Height="32" 
+                       Width="32" 
+                       VerticalAlignment="Center" 
+                       Source="{Binding User.Profilepic}">
+                </Image>
+                <TextBlock x:Name="tb_selectedtweetsuser"
+                           
+                           Text="{Binding User.Screenname}"
+                           Margin="5,0,5,0" 
+                           VerticalAlignment="Center" 
+                           MinWidth="100"
+                           />
+                
+                <TextBlock x:Name="tb_selectedtweets" 
+                           Text="{Binding Message}"  
+                           VerticalAlignment="Center" 
+                           MaxWidth="600" 
+                           TextWrapping="Wrap"
+                           />
+                
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="followerTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="img_followedimg" 
+                       Stretch="Fill" 
+                       Height="32" 
+                       Width="32" 
+                       VerticalAlignment="Center"
+                       Source="{Binding Profilepic}">
+                </Image>
+                <TextBlock x:Name="tb_followedusers" 
+                           VerticalAlignment="Center"
+                           Text="{Binding Screenname}" 
+                           />
+            </StackPanel>
+        </DataTemplate>
         <Style x:Key="listStyle" TargetType="ListBox">
             <Setter Property="Background" Value="LightBlue" />
             <Setter Property="Padding" Value="8,4" />
@@ -25,34 +66,28 @@
                 <!-- Followed twitter users appears here -->
                 <ListView Style="{StaticResource listStyle}" 
                           x:Name="lw_followedusers" 
-                          ItemsSource="{Binding}"
+                          ItemTemplate="{StaticResource followerTemplate}"
                           MinWidth="100" 
-                          RenderOptions.BitmapScalingMode="LowQuality"
-                          VerticalAlignment="Top"
-                          Margin="0,0,0,0"
-                          HorizontalAlignment="Center"/>
+                          />
             </StackPanel>
             <StackPanel Orientation="Vertical" MinWidth="100" MaxWidth="200">
                 <!-- Categories appears here -->
                 <ListBox Style="{StaticResource listStyle}" 
-                         x:Name="lb_categories" 
-                         ItemsSource="{Binding}" />
+                         x:Name="lb_categories"
+                         ItemsSource="{Binding}"
+                         />
                 <Button x:Name="btn_editcategories" 
                         Content="Edit Categories" 
                         VerticalAlignment="Bottom" 
                         MaxWidth="100"
-                        Click="btn_editcategories_Click"/>
+                        Click="btn_editcategories_Click"
+                        />
             </StackPanel>
             <StackPanel Orientation="Vertical" MinWidth="100" MaxWidth="900" >
                 <!-- Tweets by selected user or category appears here -->
-                <ListView Style="{StaticResource listStyle}">
-                    <ListViewItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Image x:Name="img_selectedtweetsimg"></Image>
-                            <TextBlock x:Name="tb_selectedtweets"></TextBlock>
-                        </StackPanel>
-                    </ListViewItem>
-                     
+                <ListView x:Name="lw_selectedtweets" 
+                          Style="{StaticResource listStyle}" 
+                          ItemTemplate="{StaticResource tweetTemplate}">
                 </ListView>
             </StackPanel>
         </StackPanel>
