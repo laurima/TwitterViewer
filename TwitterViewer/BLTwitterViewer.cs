@@ -35,7 +35,7 @@ namespace TwitterViewer
                     {
                         // DELETE node
                         TwitterStatus tweet = tweets.ElementAt(i);
-                        homelinetweets.Add(new Tweet(tweet.User.ScreenName, tweet.Text, "https://twitter.com/" + tweet.User.ScreenName + "/profile_image?size=original"));
+                        homelinetweets.Add(new Tweet(new User(tweet.User.ScreenName), tweet.Text));
                     }
                 }
 
@@ -49,9 +49,9 @@ namespace TwitterViewer
             
         }
         // 2216257297
-        public static List<string> getFollowedUsers()
+        public static List<User> getFollowedUsers()
         {
-            List<string> followedusers = new List<string>();
+            List<User> followedusers = new List<User>();
             try
             {
 
@@ -60,7 +60,7 @@ namespace TwitterViewer
                 for (int id = 0; id > friendids.Count; id++)
                 {
                     TwitterFriendship info = service.GetFriendshipInfo(new GetFriendshipInfoOptions { TargetId = friendids[id].ToString() });
-                    followedusers.Add(info.Relationship.Source.ScreenName);
+                    followedusers.Add(new User(info.Relationship.Source.ScreenName));
                 }
 
                 return followedusers;
@@ -82,7 +82,7 @@ namespace TwitterViewer
 
                 foreach (var tweet in tweets)
                 {
-                    usertweets.Add(new Tweet(tweet.User.ScreenName, tweet.Text, "https://twitter.com/" + tweet.User.ScreenName + "/profile_image?size=original"));
+                    usertweets.Add(new Tweet(new User(tweet.User.ScreenName), tweet.Text));
                 }
                 return usertweets;
             }
@@ -96,13 +96,13 @@ namespace TwitterViewer
 
     }
 
-    class Tweet 
+    class Tweet
     {
         #region PROPERTIES
 
-        private string user;
+        private User user;
 
-        public string User
+        public User User
         {
             get { return user; }
             set { user = value; }
@@ -116,6 +116,43 @@ namespace TwitterViewer
             set { message = value; }
         }
 
+   
+        #endregion
+        #region CONSTRUCTOR
+        public Tweet(User user, string message)
+        {
+            User = user;
+            Message = message;
+        }
+        #endregion
+        #region METHODS
+        public override string ToString()
+        {
+            return user.Screenname + ": " + message;
+        }
+        #endregion
+    }
+
+    class User
+    {
+        #region PROPERTIES
+
+        private int id;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        private string screenname;
+
+        public string Screenname
+        {
+            get { return screenname; }
+            set { screenname = value; }
+        }
+
         private string profilepic;
 
         public string Profilepic
@@ -124,21 +161,23 @@ namespace TwitterViewer
             set { profilepic = value; }
         }
 
+        #endregion
 
-        #endregion
         #region CONSTRUCTOR
-        public Tweet(string user, string message, string profilepic)
+        public User(int id, string screenname) {
+            this.id = id;
+            this.screenname = screenname;
+            this.profilepic = "https://twitter.com/" + screenname + "/profile_image?size=original";
+        }
+        
+        public User(string screenname)
         {
-            User = user;
-            Message = message;
-            Profilepic = profilepic;
+            this.id = 0;
+            this.screenname = screenname;
+            this.profilepic = "https://twitter.com/" + screenname + "/profile_image?size=original";
         }
         #endregion
-        #region METHODS
-        public override string ToString()
-        {
-            return user + ": " + message;
-        }
-        #endregion
+
     }
+
 }
