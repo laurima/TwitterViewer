@@ -40,3 +40,5 @@ D:\H9142\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.Properties.Resource
 D:\H9142\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.csproj.GenerateResource.Cache
 D:\H9142\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.exe
 D:\H9142\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.pdb
+D:\H9142\TwitterViewer\TwitterViewer\obj\Debug\categoriesEditWindow.g.cs
+D:\H9142\TwitterViewer\TwitterViewer\obj\Debug\categoriesEditWindow.baml
