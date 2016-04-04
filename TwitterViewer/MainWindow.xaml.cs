@@ -97,10 +97,4 @@ namespace TwitterViewer
             }
         }
     }
-
-    internal class userListItem
-    {
-        public string userName { get; set; }
-        public string userPic { get; set; }
-    }
 }

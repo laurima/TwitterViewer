@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TwitterViewer"
         mc:Ignorable="d"
-        Title="TwitterViewr" Height="500" MinWidth="400" MaxWidth="1400">
+        Title="TwitterViewr" Height="500" MinWidth="400" MaxWidth="1100">
 
     <Window.Resources>
         <ResourceDictionary Source="appearanceDictionary.xaml"></ResourceDictionary>
@@ -18,7 +18,7 @@
                           x:Name="lw_followedusers" 
                           ItemTemplate="{StaticResource followerTemplate}"
                           MinWidth="100" 
-                          MaxHeight="480"
+                          MaxHeight="450"
                           SelectionChanged="lw_followedusers_SelectionChanged" 
                           />
             </StackPanel>
@@ -39,7 +39,8 @@
                 <!-- Tweets by selected user or category appears here -->
                 <ListView x:Name="lw_selectedtweets" 
                           Style="{StaticResource listStyle}" 
-                          ItemTemplate="{StaticResource tweetTemplate}">
+                          ItemTemplate="{StaticResource tweetTemplate}"
+                          MaxHeight="450">                    
                 </ListView>
             </StackPanel>
         </StackPanel>
