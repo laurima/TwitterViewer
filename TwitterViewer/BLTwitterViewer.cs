@@ -13,10 +13,10 @@ namespace TwitterViewer
         static TwitterService service;
         public static void authenticate()
         {
-            string _consumerKey = "hDfxDffMyp3xmnAFcCMM9IzuH";
-            string _consumerSecret = "ic6M72jx7WcDtICakJHmXkehilHtxJ1sWgKC84dkujlPG9n8Fv";
-            string _accessToken = "2216257297-3Nzd3W3Qyl4lCqJU4GzhKsNxgjeVmVZZmmstMoo";
-            string _accessTokenSecret = "ie903ODJe2mApqI9TLt73mnGoymv65FSZGGwm9tUJ5zJd";
+            string _consumerKey = TwitterViewer.Properties.Settings.Default.ConsumerKey;
+            string _consumerSecret = TwitterViewer.Properties.Settings.Default.ConsumerSecret;
+            string _accessToken = TwitterViewer.Properties.Settings.Default.AccessToken;
+            string _accessTokenSecret = TwitterViewer.Properties.Settings.Default.AccessTokenSecret;
             // In v1.1, all API calls require authentication
             service = new TwitterService(_consumerKey, _consumerSecret);
             service.AuthenticateWith(_accessToken, _accessTokenSecret);
@@ -45,26 +45,30 @@ namespace TwitterViewer
                 MessageBox.Show(ex.Message);
                 return homelinetweets;
             }
-            
+
         }
-        // 2216257297
+
         public static List<User> getFollowedUsers()
         {
             List<User> followedusers = new List<User>();
             try
             {
+                // To get followed users from twitter api
+                // Problem with this is twitter api limits
 
+                /*
                 var friendids = service.ListFriendIdsOf(new ListFriendIdsOfOptions());
-
-                // for (int id = 0; id < friendids.Count(); id++)
-                for (int id = 0; id < 5; id++)
+                
+                for (int id = 0; id < friendids.Count(); id++)
                 {
-                    //MessageBox.Show(friendids[id].ToString());
-                    TwitterFriendship info = service.GetFriendshipInfo(new GetFriendshipInfoOptions { SourceId = "2216257297", TargetId = friendids[id].ToString() });
-                    followedusers.Add(new User(info.Relationship.Target.ScreenName));
+                    TwitterFriendship info = service.GetFriendshipInfo(new GetFriendshipInfoOptions { SourceId = TwitterViewer.Properties.Settings.Default.UserID, TargetId = friendids[id].ToString() });
+                    followedusers.Add(new User(info.Relationship.Target.Id, info.Relationship.Target.ScreenName));
                 }
+                */
 
                 //DBTwitterViewer.SerializeFollowedUsers(followedusers);
+                followedusers = DBTwitterViewer.DeserializeFollowedUsers();
+
                 return followedusers;
 
             }
@@ -93,7 +97,7 @@ namespace TwitterViewer
                 MessageBox.Show(ex.Message);
                 return usertweets;
             }
-            
+
         }
 
     }
@@ -118,7 +122,7 @@ namespace TwitterViewer
             set { message = value; }
         }
 
-   
+
         #endregion
         #region CONSTRUCTOR
         public Tweet(User user, string message)
@@ -139,9 +143,9 @@ namespace TwitterViewer
     {
         #region PROPERTIES
 
-        private int id;
+        private long id;
 
-        public int Id
+        public long Id
         {
             get { return id; }
             set { id = value; }
@@ -165,12 +169,13 @@ namespace TwitterViewer
 
         #endregion
         #region CONSTRUCTOR
-        public User(int id, string screenname) {
+        public User(long id, string screenname)
+        {
             this.id = id;
             this.screenname = screenname;
             this.profilepic = "https://twitter.com/" + screenname + "/profile_image?size=original";
         }
-        
+
         public User(string screenname)
         {
             this.id = 0;
