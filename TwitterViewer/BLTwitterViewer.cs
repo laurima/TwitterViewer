@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using TweetSharp;
+using Newtonsoft.Json;
 
 namespace TwitterViewer
 {
@@ -88,7 +89,11 @@ namespace TwitterViewer
 
                 foreach (var tweet in tweets)
                 {
-                    usertweets.Add(new Tweet(new User(tweet.User.ScreenName), tweet.Text));
+                    if (tweet.Id != 0)
+                    {
+                        usertweets.Add(new Tweet(new User(tweet.User.Id, tweet.User.ScreenName), tweet.Text));
+                    }
+                    
                 }
                 return usertweets;
             }
@@ -169,6 +174,13 @@ namespace TwitterViewer
 
         #endregion
         #region CONSTRUCTOR
+        [JsonConstructor]
+        public User(long id, string screenname, string profilepic)
+        {
+            this.id = id;
+            this.screenname = screenname;
+            this.profilepic = profilepic;
+        }
         public User(long id, string screenname)
         {
             this.id = id;

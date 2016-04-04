@@ -82,20 +82,13 @@ namespace TwitterViewer
             string user = lw_followedusers.SelectedItem.ToString().Split()[1];
 
             lw_selectedtweets.ItemsSource = null;
-           
-            MessageBox.Show(user);
 
             List<Tweet> tweets = BLTwitterViewer.getTweets(user);
             if (tweets.Count > 0 && tweets != null)
             {
                 try
                 {
-                    List<Tweet> items = new List<Tweet>();
-                    foreach (Tweet tweet in tweets)
-                    {
-                        items.Add(tweet);
-                        lw_selectedtweets.ItemsSource = items;
-                    }
+                    lw_selectedtweets.ItemsSource = tweets;
                 }
                 catch (Exception ex)
                 {
