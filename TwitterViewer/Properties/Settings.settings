@@ -8,14 +8,17 @@
     <Setting Name="ConsumerSecret" Type="System.String" Scope="Application">
       <Value Profile="(Default)">ic6M72jx7WcDtICakJHmXkehilHtxJ1sWgKC84dkujlPG9n8Fv</Value>
     </Setting>
-    <Setting Name="AccessToken" Type="System.String" Scope="Application">
+    <Setting Name="AccessToken" Type="System.String" Scope="User">
       <Value Profile="(Default)">2216257297-3Nzd3W3Qyl4lCqJU4GzhKsNxgjeVmVZZmmstMoo</Value>
     </Setting>
-    <Setting Name="AccessTokenSecret" Type="System.String" Scope="Application">
+    <Setting Name="AccessTokenSecret" Type="System.String" Scope="User">
       <Value Profile="(Default)">ie903ODJe2mApqI9TLt73mnGoymv65FSZGGwm9tUJ5zJd</Value>
     </Setting>
-    <Setting Name="UserID" Type="System.String" Scope="Application">
+    <Setting Name="UserID" Type="System.String" Scope="User">
       <Value Profile="(Default)">2216257297</Value>
+    </Setting>
+    <Setting Name="FollowedUsersJSON" Type="System.String" Scope="User">
+      <Value Profile="(Default)">@"D:\H8543\TwitterViewer\Followedusers.json"</Value>
     </Setting>
   </Settings>
 </SettingsFile>

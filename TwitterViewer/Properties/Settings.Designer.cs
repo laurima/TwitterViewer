@@ -41,30 +41,51 @@ namespace TwitterViewer.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2216257297-3Nzd3W3Qyl4lCqJU4GzhKsNxgjeVmVZZmmstMoo")]
         public string AccessToken {
             get {
                 return ((string)(this["AccessToken"]));
             }
+            set {
+                this["AccessToken"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ie903ODJe2mApqI9TLt73mnGoymv65FSZGGwm9tUJ5zJd")]
         public string AccessTokenSecret {
             get {
                 return ((string)(this["AccessTokenSecret"]));
             }
+            set {
+                this["AccessTokenSecret"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2216257297")]
         public string UserID {
             get {
                 return ((string)(this["UserID"]));
+            }
+            set {
+                this["UserID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("@\"D:\\H8543\\TwitterViewer\\Followedusers.json\"")]
+        public string FollowedUsersJSON {
+            get {
+                return ((string)(this["FollowedUsersJSON"]));
+            }
+            set {
+                this["FollowedUsersJSON"] = value;
             }
         }
     }
