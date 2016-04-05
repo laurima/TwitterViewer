@@ -96,5 +96,15 @@ namespace TwitterViewer
                 }
             }
         }
+
+        private void btn_showtimeline_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_editfolloweduserlistlocation_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
