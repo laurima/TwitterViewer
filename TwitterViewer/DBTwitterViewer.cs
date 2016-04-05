@@ -23,7 +23,9 @@ namespace TwitterViewer
                 serializedobjects.Add(JsonConvert.SerializeObject(user));
             }
 
+
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(TwitterViewer.Properties.Settings.Default.FollowedUsersJSON, false))
+
             {
                 foreach (var obj in serializedobjects)
                 {
