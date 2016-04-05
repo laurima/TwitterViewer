@@ -5,43 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TwitterViewer"
         mc:Ignorable="d"
-        Title="TwitterViewr" Height="500" MinWidth="400" MaxWidth="1100">
+        Title="TwitterViewr" Height="500" MinWidth="400" MaxWidth="1100" SizeToContent="WidthAndHeight">
 
     <Window.Resources>
         <ResourceDictionary Source="appearanceDictionary.xaml"></ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <StackPanel Orientation="Horizontal" MinWidth="800">
-            <StackPanel Orientation="Vertical">
-                <!-- Followed twitter users appears here -->
-                <ListView Style="{StaticResource listStyle}" 
+
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="btn_showtimeline" 
+                        Content="Show timeline" 
+                        HorizontalAlignment="Center" 
+                        MaxWidth="110"
+                        Click="btn_showtimeline_Click"
+                        Margin="10,10,10,10"
+                        />
+                    <Button x:Name="btn_editcategories" 
+                        Content="Edit Categories" 
+                        VerticalAlignment="Bottom" 
+                        MaxWidth="110"
+                        Click="btn_editcategories_Click"
+                        Margin="10,10,10,10"
+                        />
+                    <Button x:Name="btn_editfolloweduserlistlocation" 
+                        Content="Update followed users" 
+                        VerticalAlignment="Bottom" 
+                        MaxWidth="130"
+                        Click="btn_editfolloweduserlistlocation_Click"
+                        Margin="10,10,10,10"
+                        />
+                </StackPanel>
+            </StackPanel>
+
+
+
+
+
+            <StackPanel Orientation="Horizontal" MinWidth="800">
+                <StackPanel Orientation="Vertical">
+                    <!-- Followed twitter users appears here -->
+                    <ListView Style="{StaticResource listStyle}" 
                           x:Name="lw_followedusers" 
-                          ItemTemplate="{StaticResource followerTemplate}"
-                          MinWidth="100" 
+                          ItemTemplate="{StaticResource followerTemplate}" 
+                          MinWidth="185"
                           MaxHeight="450"
                           SelectionChanged="lw_followedusers_SelectionChanged" 
                           />
-            </StackPanel>
-            <StackPanel Orientation="Vertical" MinWidth="100" MaxWidth="200">
-                <!-- Categories appears here -->
-                <ListView Style="{StaticResource listStyle}" 
+                </StackPanel>
+                <StackPanel Orientation="Vertical" MinWidth="100" MaxWidth="200">
+                    <!-- Categories appears here -->
+
+                    <ListView Style="{StaticResource listStyle}" 
                          x:Name="lw_categories"
                          ItemsSource="{Binding}"
                          />
-                <Button x:Name="btn_editcategories" 
-                        Content="Edit Categories" 
-                        VerticalAlignment="Bottom" 
-                        MaxWidth="100"
-                        Click="btn_editcategories_Click"
-                        />
-            </StackPanel>
-            <StackPanel Orientation="Vertical" MinWidth="100" MaxWidth="900" >
-                <!-- Tweets by selected user or category appears here -->
-                <ListView x:Name="lw_selectedtweets" 
+                </StackPanel>
+                <StackPanel Orientation="Vertical" MinWidth="100" MaxWidth="900" >
+                    <!-- Tweets by selected user or category appears here -->
+                    <ListView x:Name="lw_selectedtweets" 
                           Style="{StaticResource listStyle}" 
                           ItemTemplate="{StaticResource tweetTemplate}"
-                          MaxHeight="450">                    
-                </ListView>
+                          MaxHeight="450">
+                    </ListView>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>
