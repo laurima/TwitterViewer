@@ -80,12 +80,12 @@ namespace TwitterViewer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("@\"D:\\H8543\\TwitterViewer\\Followedusers.json\"")]
-        public string FollowedUsers {
+        public string FollowedUsersJSON {
             get {
-                return ((string)(this["FollowedUsers"]));
+                return ((string)(this["FollowedUsersJSON"]));
             }
             set {
-                this["FollowedUsers"] = value;
+                this["FollowedUsersJSON"] = value;
             }
         }
     }

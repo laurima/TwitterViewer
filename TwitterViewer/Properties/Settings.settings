@@ -17,7 +17,7 @@
     <Setting Name="UserID" Type="System.String" Scope="User">
       <Value Profile="(Default)">2216257297</Value>
     </Setting>
-    <Setting Name="FollowedUsers" Type="System.String" Scope="User">
+    <Setting Name="FollowedUsersJSON" Type="System.String" Scope="User">
       <Value Profile="(Default)">@"D:\H8543\TwitterViewer\Followedusers.json"</Value>
     </Setting>
   </Settings>

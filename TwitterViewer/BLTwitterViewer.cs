@@ -23,6 +23,27 @@ namespace TwitterViewer
             service.AuthenticateWith(_accessToken, _accessTokenSecret);
         }
 
+        public static void updateFollowedUsersJson()
+        {
+            try
+            {
+                List<User> followedusers = new List<User>();
+                var friendids = service.ListFriendIdsOf(new ListFriendIdsOfOptions());
+
+                for (int id = 0; id < friendids.Count(); id++)
+                {
+                    TwitterFriendship info = service.GetFriendshipInfo(new GetFriendshipInfoOptions { SourceId = TwitterViewer.Properties.Settings.Default.UserID, TargetId = friendids[id].ToString() });
+                    followedusers.Add(new User(info.Relationship.Target.Id, info.Relationship.Target.ScreenName));
+                }
+
+                DBTwitterViewer.SerializeFollowedUsers(followedusers);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public static List<Tweet> getUserTimeLine()
         {
             List<Tweet> homelinetweets = new List<Tweet>();
@@ -54,20 +75,6 @@ namespace TwitterViewer
             List<User> followedusers = new List<User>();
             try
             {
-                // To get followed users from twitter api
-                // Problem with this is twitter api limits
-
-                /*
-                var friendids = service.ListFriendIdsOf(new ListFriendIdsOfOptions());
-                
-                for (int id = 0; id < friendids.Count(); id++)
-                {
-                    TwitterFriendship info = service.GetFriendshipInfo(new GetFriendshipInfoOptions { SourceId = TwitterViewer.Properties.Settings.Default.UserID, TargetId = friendids[id].ToString() });
-                    followedusers.Add(new User(info.Relationship.Target.Id, info.Relationship.Target.ScreenName));
-                }
-                */
-
-                //DBTwitterViewer.SerializeFollowedUsers(followedusers);
                 followedusers = DBTwitterViewer.DeserializeFollowedUsers();
 
                 return followedusers;
