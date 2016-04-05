@@ -23,7 +23,7 @@ namespace TwitterViewer
                 serializedobjects.Add(JsonConvert.SerializeObject(user));
             }
 
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"E:\Documents\GitHub\TwitterViewer\Followedusers.json"))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(TwitterViewer.Properties.Settings.Default.FollowedUsers, false))
             {
                 foreach (var obj in serializedobjects)
                 {
@@ -35,7 +35,7 @@ namespace TwitterViewer
         public static List<User> DeserializeFollowedUsers()
         {
             List<User> deserializedobjects = new List<User>();
-            using (System.IO.StreamReader file = new System.IO.StreamReader(@"E:\Documents\GitHub\TwitterViewer\Followedusers.json"))
+            using (System.IO.StreamReader file = new System.IO.StreamReader(TwitterViewer.Properties.Settings.Default.FollowedUsers))
             {
                 string line;
                 while ((line = file.ReadLine()) != null)
