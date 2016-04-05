@@ -22,7 +22,7 @@
                           x:Name="lw_followedusers" 
                           ItemTemplate="{StaticResource followerTemplate}"
                           MinWidth="100" 
-                          MaxHeight="480"
+                          MaxHeight="200"
                           />
             </StackPanel>
             <StackPanel HorizontalAlignment="Center">
@@ -37,7 +37,6 @@
                         Content="Add Categories" 
                         VerticalAlignment="Bottom" 
                         MaxWidth="100" Click="btn_addcategories_Click"
-                        
                         />
             </StackPanel>
             <StackPanel>

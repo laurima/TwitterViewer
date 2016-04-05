@@ -22,8 +22,25 @@ namespace TwitterViewer
         public categoriesEditWindow()
         {
             InitializeComponent();
+            iniMyStuff();
         }
 
+        private void iniMyStuff()
+        {
+            List<User> users = BLTwitterViewer.getFollowedUsers();
+            if (users.Count > 0 && users != null)
+            {
+                try
+                {
+                    lw_followedusers.ItemsSource = users;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+    }
 
         private void CloseCommandHandler(object sender, ExecutedRoutedEventArgs e)
         {
@@ -33,6 +50,7 @@ namespace TwitterViewer
         private void btn_addcategories_Click(object sender, RoutedEventArgs e)
         {
             //lw_categories.Items.Add(btn_addcategories); not working yet
+            throw new NotImplementedException();
         }
 
         private void lw_categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
