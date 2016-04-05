@@ -99,12 +99,15 @@ namespace TwitterViewer
 
         private void btn_showtimeline_Click(object sender, RoutedEventArgs e)
         {
-
+            lw_selectedtweets.ItemsSource = null;
+            lw_selectedtweets.Items.Clear();
+            listHomeLineTweets();
         }
 
-        private void btn_editfolloweduserlistlocation_Click(object sender, RoutedEventArgs e)
+        private void btn_updatefollowesusers_Click(object sender, RoutedEventArgs e)
         {
-
+            BLTwitterViewer.updateFollowedUsersJson();
+            listFollowedUsers();
         }
     }
 }

@@ -29,19 +29,15 @@
                         Click="btn_editcategories_Click"
                         Margin="10,10,10,10"
                         />
-                    <Button x:Name="btn_editfolloweduserlistlocation" 
+                    <Button x:Name="btn_updatefollowesusers" 
                         Content="Update followed users" 
                         VerticalAlignment="Bottom" 
                         MaxWidth="130"
-                        Click="btn_editfolloweduserlistlocation_Click"
+                        Click="btn_updatefollowesusers_Click"
                         Margin="10,10,10,10"
                         />
                 </StackPanel>
             </StackPanel>
-
-
-
-
 
             <StackPanel Orientation="Horizontal" MinWidth="800">
                 <StackPanel Orientation="Vertical">
