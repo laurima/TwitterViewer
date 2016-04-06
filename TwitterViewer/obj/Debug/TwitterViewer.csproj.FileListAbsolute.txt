@@ -68,3 +68,7 @@ E:\Documents\GitHub\TwitterViewer\TwitterViewer\obj\Debug\MainWindow.baml
 E:\Documents\GitHub\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.g.resources
 E:\Documents\GitHub\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.Properties.Resources.resources
 E:\Documents\GitHub\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.csproj.GenerateResource.Cache
+D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\TwitterViewer.exe.manifest
+D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\TwitterViewer.application
+D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.exe.manifest
+D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.application
