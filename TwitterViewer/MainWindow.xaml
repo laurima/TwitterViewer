@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TwitterViewer"
         mc:Ignorable="d"
-        Title="TwitterViewr" Height="500" MinWidth="400" MaxWidth="1100" SizeToContent="WidthAndHeight">
+        Title="TwitterViewr" Width="1100" SizeToContent="Height">
 
     <Window.Resources>
         <ResourceDictionary Source="appearanceDictionary.xaml"></ResourceDictionary>

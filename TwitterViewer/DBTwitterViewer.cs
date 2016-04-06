@@ -10,9 +10,22 @@ namespace TwitterViewer
 {
     static class DBTwitterViewer
     {
-        public static void SerializeCategories(List<string> categories)
+        public static void SerializeCategories(Category categories)
         {
+            //next todo
+            /*string serializedobjects = new List<string>();
+            foreach (Category category in categories)
+            { 
+                serializedobjects.Add(JsonConvert.SerializeObject(categories));
+            }
 
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(TwitterViewer.Properties.Settings.Default.CategoriesJSON, false))
+            {
+                foreach (var obj in serializedobjects)
+                {
+                    file.WriteLine(obj);
+                }
+            }*/
         }
 
         public static void SerializeFollowedUsers(List<User> users)
