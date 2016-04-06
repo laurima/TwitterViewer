@@ -56,7 +56,7 @@ namespace TwitterViewer
                     if (tweets.ElementAt(i).Id != 0)
                     {
                         TwitterStatus tweet = tweets.ElementAt(i);
-                        homelinetweets.Add(new Tweet(new User(tweet.User.ScreenName), tweet.Text));
+                        homelinetweets.Add(new Tweet(new User(tweet.User.Id, tweet.User.ScreenName), tweet.Text));
                     }
                 }
 

@@ -38,12 +38,7 @@ namespace TwitterViewer
             {
                 try
                 {
-                    List<Tweet> items = new List<Tweet>();
-                    foreach (Tweet tweet in tweets)
-                    {
-                        items.Add(tweet);
-                        lw_selectedtweets.ItemsSource = items;
-                    }
+                    lw_selectedtweets.ItemsSource = tweets;
                 }
                 catch (Exception ex)
                 {
@@ -99,8 +94,6 @@ namespace TwitterViewer
 
         private void btn_showtimeline_Click(object sender, RoutedEventArgs e)
         {
-            lw_selectedtweets.ItemsSource = null;
-            lw_selectedtweets.Items.Clear();
             listHomeLineTweets();
         }
 
