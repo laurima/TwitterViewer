@@ -4,17 +4,26 @@
 winexe
 C#
 .cs
-D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\
+D:\H9142\TwitterViewer\TwitterViewer\obj\Debug\
 TwitterViewer
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 D:\H8543\TwitterViewer\TwitterViewer\App.xaml
 4-1925958131
 
 131194045567
 161492687172
 appearanceDictionary.xaml;categoriesEditWindow.xaml;LoginWindow.xaml;MainWindow.xaml;
+=======
+D:\H9142\TwitterViewer\TwitterViewer\App.xaml
+31482774221
+
+12-651310272
+161483754913
+appearanceDictionary.xaml;categoriesEditWindow.xaml;MainWindow.xaml;
+>>>>>>> origin/master
 
 False
 

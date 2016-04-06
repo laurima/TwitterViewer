@@ -26,6 +26,7 @@ namespace TwitterViewer
             service.AuthenticateWith(_accessToken, _accessTokenSecret);
         }
 
+<<<<<<< HEAD
         public static void OauthRequest()
         {
             service = new TwitterService(TwitterViewer.Properties.Settings.Default.ConsumerKey, TwitterViewer.Properties.Settings.Default.ConsumerSecret);
@@ -46,6 +47,24 @@ namespace TwitterViewer
         public static void authenticate()
         {
             service.AuthenticateWith(accessToken.Token, accessToken.TokenSecret);
+=======
+        public static void AddCategory(string category)
+        {
+            try
+            {
+                Category categories = new Category();
+                for (int ctgr = 0; ctgr < category.Count(); ctgr++)
+                {
+                    DBTwitterViewer.SerializeCategories(categories);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+>>>>>>> origin/master
         }
 
         public static void updateFollowedUsersJson()
@@ -235,4 +254,39 @@ namespace TwitterViewer
         #endregion
     }
 
+    class Category
+    {
+        #region PROPERTIES
+        private List<User> users;
+
+        public List<User> Users
+        {
+            get { return users; }
+            set { users = value; }
+        }
+
+        private string name;
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        #endregion
+        #region CONSTRUCTORS
+        [JsonConstructor]
+        public Category(List<User> users, string name)
+        {
+            this.users = users;
+            this.name = name;
+        }
+        public Category(string name)
+        {
+            this.name = name;
+        }
+        public Category()
+        {
+        }
+        #endregion
+    }
 }
