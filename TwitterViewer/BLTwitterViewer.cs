@@ -52,12 +52,7 @@ namespace TwitterViewer
         {
             try
             {
-                Category categories = new Category();
-                for (int ctgr = 0; ctgr < category.Count(); ctgr++)
-                {
-                    DBTwitterViewer.SerializeCategories(categories);
-                }
-                
+                    DBTwitterViewer.SerializeCategory(category);
             }
             catch (Exception ex)
             {
