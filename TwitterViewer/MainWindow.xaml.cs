@@ -25,7 +25,8 @@ namespace TwitterViewer
         public MainWindow()
         {
             InitializeComponent();
-            BLTwitterViewer.authenticate();
+            //BLTwitterViewer.testauthenticate();
+            BLTwitterViewer.updateFollowedUsersJson();
             listFollowedUsers();
             listHomeLineTweets();
         }

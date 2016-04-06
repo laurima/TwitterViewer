@@ -72,3 +72,5 @@ D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\TwitterViewer.exe.manifest
 D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\TwitterViewer.application
 D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.exe.manifest
 D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.application
+D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\LoginWindow.g.cs
+D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\LoginWindow.baml

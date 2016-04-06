@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 using System.Windows;
 using TweetSharp;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace TwitterViewer
 {
     static class BLTwitterViewer
     {
         static TwitterService service;
-        public static void authenticate()
+        static OAuthRequestToken requestToken;
+        static OAuthAccessToken accessToken;
+        public static void testauthenticate()
         {
             string _consumerKey = TwitterViewer.Properties.Settings.Default.ConsumerKey;
             string _consumerSecret = TwitterViewer.Properties.Settings.Default.ConsumerSecret;
@@ -21,6 +24,28 @@ namespace TwitterViewer
             // In v1.1, all API calls require authentication
             service = new TwitterService(_consumerKey, _consumerSecret);
             service.AuthenticateWith(_accessToken, _accessTokenSecret);
+        }
+
+        public static void OauthRequest()
+        {
+            service = new TwitterService(TwitterViewer.Properties.Settings.Default.ConsumerKey, TwitterViewer.Properties.Settings.Default.ConsumerSecret);
+            requestToken = service.GetRequestToken();
+        }
+
+        public static void openAuthorizationUrl()
+        {
+            Uri uri = service.GetAuthorizationUri(requestToken);
+            Process.Start(uri.ToString());
+        }
+
+        public static void OauthAccess(string pin)
+        {
+            accessToken = service.GetAccessToken(requestToken, pin);
+        }
+
+        public static void authenticate()
+        {
+            service.AuthenticateWith(accessToken.Token, accessToken.TokenSecret);
         }
 
         public static void updateFollowedUsersJson()
