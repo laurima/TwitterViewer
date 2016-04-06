@@ -26,7 +26,7 @@ namespace TwitterViewer
             service.AuthenticateWith(_accessToken, _accessTokenSecret);
         }
 
-
+<<<<<<< HEAD
         public static void OauthRequest()
         {
             service = new TwitterService(TwitterViewer.Properties.Settings.Default.ConsumerKey, TwitterViewer.Properties.Settings.Default.ConsumerSecret);
@@ -47,8 +47,7 @@ namespace TwitterViewer
         public static void authenticate()
         {
             service.AuthenticateWith(accessToken.Token, accessToken.TokenSecret);
-        }
-
+=======
         public static void AddCategory(string category)
         {
             try
@@ -65,7 +64,7 @@ namespace TwitterViewer
 
                 MessageBox.Show(ex.Message);
             }
-
+>>>>>>> origin/master
         }
 
         public static void updateFollowedUsersJson()

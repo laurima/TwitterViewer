@@ -78,14 +78,22 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TwitterViewer.exe" size="27576">
+<<<<<<< HEAD
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TwitterViewer.exe" size="27064">
+=======
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TwitterViewer.exe" size="25016">
+>>>>>>> origin/master
       <assemblyIdentity name="TwitterViewer" version="0.1.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>o0hznAtZSuS/EcWDxG7696V/aMP8NA6zrk8KKgYO/HM=</dsig:DigestValue>
+<<<<<<< HEAD
+        <dsig:DigestValue>3p8AvuxD4tPqzckgFgSkaLNfQjNkeevo3DkVPNBdJCw=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>F2UxV1rie+xrltnw7Casx/7MrIe9gzUPU9P+YgBbliY=</dsig:DigestValue>
+>>>>>>> origin/master
       </hash>
     </dependentAssembly>
   </dependency>
