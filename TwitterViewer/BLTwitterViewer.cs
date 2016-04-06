@@ -202,7 +202,7 @@ namespace TwitterViewer
             this.profilepic = "https://twitter.com/" + screenname + "/profile_image?size=original";
         }
         #endregion
-        #region MyRegion
+        #region METHODS
         public override string ToString()
         {
             return profilepic + " " + screenname;
