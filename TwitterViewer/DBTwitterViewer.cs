@@ -31,7 +31,6 @@ namespace TwitterViewer
                 JObject o2 = (JObject)JToken.ReadFrom(reader);
                 o1 = o2;
             }
-
             return o1;
         }
 

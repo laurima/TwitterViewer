@@ -7,6 +7,7 @@ using System.Windows;
 using TweetSharp;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 namespace TwitterViewer
 {
@@ -52,7 +53,11 @@ namespace TwitterViewer
         {
             try
             {
-                    DBTwitterViewer.SerializeCategory(category);
+                Type type = typeof(string);
+                JObject jobject = DBTwitterViewer.ReadCategoriesJSON();
+                /*string tmp = JsonConvert.DeserializeObject(jobject["category"].ToString(), type); is not yet functional
+                //DBTwitterViewer.SerializeCategory(category);
+                MessageBox.Show(tmp);*/
             }
             catch (Exception ex)
             {
