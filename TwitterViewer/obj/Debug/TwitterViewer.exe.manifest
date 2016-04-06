@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Hammock.ClientProfile.dll" size="196608">
-      <assemblyIdentity name="Hammock.ClientProfile" version="1.0.0.0" publicKeyToken="C148CFBA29ED1A4D" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Hammock.dll" size="203264">
+      <assemblyIdentity name="Hammock" version="1.0.0.0" publicKeyToken="C148CFBA29ED1A4D" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dl3+uFJVibFh0B2pkGLktIhA9W9kW1N6ejuQfU5Hr58=</dsig:DigestValue>
+        <dsig:DigestValue>l8omQf792g0UkaCsErC6aHz8Ajsf/wZ9Wz4r8oQmOKY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TweetSharp.dll" size="230912">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TweetSharp.dll" size="231424">
       <assemblyIdentity name="TweetSharp" version="2.0.0.0" publicKeyToken="C148CFBA29ED1A4D" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>As3S/H5sKVVfrBAIWItU2w/8Wtsv6D50CXiYYrq4eL0=</dsig:DigestValue>
+        <dsig:DigestValue>jGqpqrk4Qk1N7RT79RS9VKMy9aQDqT/X8LkXlf8AY9s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -85,17 +85,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>4nKGfJrvi57T5ugGqWMCie4jNGHO5KgxejlU2a/PwOY=</dsig:DigestValue>
+        <dsig:DigestValue>4WD1XZwlWJ5bjlc5uvx9BpC2uXxOO3AZ5FzBhLqIYiQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="TwitterViewer.exe.config" size="2683">
+  <file name="TwitterViewer.exe.config" size="2681">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>vgloAc7TyT0Y4fXyDzrssyRlfy8wtCIBy9FCo4fr1b8=</dsig:DigestValue>
+      <dsig:DigestValue>busxGhKK253p9Y8iZWGuKXpHASkXuEE3Mb51R/H6/ak=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

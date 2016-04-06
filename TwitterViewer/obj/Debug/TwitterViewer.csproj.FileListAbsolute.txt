@@ -3,13 +3,12 @@ D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\TwitterViewer.exe.manifest
 D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\TwitterViewer.application
 D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\TwitterViewer.exe
 D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\TwitterViewer.pdb
-D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\Hammock.ClientProfile.dll
+D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\Hammock.dll
 D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\Newtonsoft.Json.dll
 D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\TweetSharp.dll
-D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\Hammock.ClientProfile.pdb
+D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\Hammock.pdb
 D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\Newtonsoft.Json.xml
 D:\H8543\TwitterViewer\TwitterViewer\bin\Debug\TweetSharp.pdb
-D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.csprojResolveAssemblyReference.cache
 D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\categoriesEditWindow.g.cs
 D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\LoginWindow.g.cs
 D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\MainWindow.g.cs
@@ -27,3 +26,4 @@ D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.exe.manifest
 D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.application
 D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.exe
 D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.pdb
+D:\H8543\TwitterViewer\TwitterViewer\obj\Debug\TwitterViewer.csprojResolveAssemblyReference.cache

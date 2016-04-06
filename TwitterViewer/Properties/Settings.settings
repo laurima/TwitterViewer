@@ -18,10 +18,10 @@
       <Value Profile="(Default)">2216257297</Value>
     </Setting>
     <Setting Name="FollowedUsersJSON" Type="System.String" Scope="User">
-      <Value Profile="(Default)">D:\H9142\TwitterViewer\Followedusers.json</Value>
+      <Value Profile="(Default)">D:\H8543\TwitterViewer\Followedusers.json</Value>
     </Setting>
     <Setting Name="CategoriesJSON" Type="System.String" Scope="User">
-      <Value Profile="(Default)">D:\H9142\TwitterViewer\Categories.json</Value>
+      <Value Profile="(Default)">D:\H8543\TwitterViewer\Categories.json</Value>
     </Setting>
   </Settings>
 </SettingsFile>

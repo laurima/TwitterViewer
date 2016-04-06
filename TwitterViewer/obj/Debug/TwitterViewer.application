@@ -7,14 +7,14 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="TwitterViewer.exe.manifest" size="5540">
+    <dependentAssembly dependencyType="install" codebase="TwitterViewer.exe.manifest" size="5512">
       <assemblyIdentity name="TwitterViewer.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Kn1ZB1N7tScJqy9DvEcKnqoIANl9LmIk/0OPesOLkuU=</dsig:DigestValue>
+        <dsig:DigestValue>jKzveP9L/4LdJag+NS3ulX3X30tl9eEp7P98lYoHrQ4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
