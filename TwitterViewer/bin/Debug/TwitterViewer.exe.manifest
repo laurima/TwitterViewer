@@ -78,24 +78,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TwitterViewer.exe" size="28088">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TwitterViewer.exe" size="28600">
       <assemblyIdentity name="TwitterViewer" version="0.1.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>VzENR7bs3ltMW6kzEZMAqH3c5pO1T1B2PLoxP2kGMDM=</dsig:DigestValue>
+        <dsig:DigestValue>OO4+d1I8OVihX4h2dhw/wXhPZgF8ttBypUo9ZbzUWpE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="TwitterViewer.exe.config" size="2681">
+  <file name="TwitterViewer.exe.config" size="2683">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>XuiX68yD+OUvuSUIZCA9TJf9kjTWxxKw+JBgD/CrbXQ=</dsig:DigestValue>
+      <dsig:DigestValue>QymMgHNdfT/jM+gDGJO272k0SnIt6U/XEe01hNaysrE=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
