@@ -8,6 +8,7 @@ using TweetSharp;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Xml.Linq;
 
 namespace TwitterViewer
 {
@@ -64,6 +65,18 @@ namespace TwitterViewer
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public static void saveCategories(List<String> categories)
+        {
+            /*XElement xetmp = new XElement();
+            xetmp.Add(categories);*/
+        }
+        public static List<String> showCategories()
+        {
+            XElement xetmp;
+            List<String> list = new List<string>();
+            return list;
         }
 
         public static void updateFollowedUsersJson()
