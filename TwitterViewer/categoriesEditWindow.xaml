@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TwitterViewer"
         mc:Ignorable="d"
-        Title="Edit categories" Height="400" Width="600">
+        Title="Edit categories" SizeToContent="WidthAndHeight">
     <Window.Resources>
         <ResourceDictionary Source="appearanceDictionary.xaml"></ResourceDictionary>
     </Window.Resources>
@@ -13,8 +13,8 @@
         <CommandBinding Command="ApplicationCommands.Close"
                         Executed="CloseCommandHandler"/>
     </Window.CommandBindings>
-    <StackPanel x:Name="MainStackPanel" Orientation="Vertical" MinHeight="200">
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" MinHeight="200">
+    <StackPanel x:Name="MainStackPanel" Orientation="Vertical">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <!-- Followed twitter users appears here -->
             <StackPanel Orientation="Vertical">
                 <TextBlock HorizontalAlignment="Center">Users</TextBlock>
@@ -52,7 +52,7 @@
                 Content="Close Window"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Margin="0,10,0,0"/>
+                Margin="0,10,0,10"/>
     </StackPanel>
 
 

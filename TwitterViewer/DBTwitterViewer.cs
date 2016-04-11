@@ -37,7 +37,7 @@ namespace TwitterViewer
         public static List<Category> DeserializeCategories()
         {
             List<Category> desrializedcategories = new List<Category>();
-            using (System.IO.StreamReader file = new System.IO.StreamReader(TwitterViewer.Properties.Settings.Default.CategoriesJSON))
+            using (System.IO.StreamReader file = new System.IO.StreamReader(TwitterViewer.Properties.Settings.Default.CategoriesJSON, false))
             {
                 string line;
                 while ((line = file.ReadLine()) != null)
