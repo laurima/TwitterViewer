@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,7 @@ namespace TwitterViewer
         {
             InitializeComponent();
             //BLTwitterViewer.testauthenticate();
+            TwitterViewer.Properties.Settings.Default.FollowedUsersJSON = System.IO.Path.GetTempPath() + "\\FollowedUsers.json";
             BLTwitterViewer.updateFollowedUsersJson();
             listFollowedUsers();
             listHomeLineTweets();
