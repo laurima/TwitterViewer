@@ -79,7 +79,7 @@ namespace TwitterViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D:\\H9142\\TwitterViewer\\Followedusers.json")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Z:\\GitHub\\TwitterViewer\\Followedusers.json")]
         public string FollowedUsersJSON {
             get {
                 return ((string)(this["FollowedUsersJSON"]));
@@ -91,7 +91,7 @@ namespace TwitterViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D:\\H9142\\TwitterViewer\\Categories.json")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Z:\\GitHub\\TwitterViewer\\Categories.json")]
         public string CategoriesJSON {
             get {
                 return ((string)(this["CategoriesJSON"]));
