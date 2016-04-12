@@ -33,23 +33,14 @@ namespace TwitterViewer
             BLTwitterViewer.updateFollowedUsersJson();
             listFollowedUsers();
             listHomeLineTweets();
-<<<<<<< HEAD
             showCategories();
-            
-=======
-            DBTwitterViewer.ReadCategoriesXML();
-            listCategories();
->>>>>>> origin/master
             Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         public void showCategories()
         {
-<<<<<<< HEAD
             BLTwitterViewer.getCategories();
-=======
            // xe = XElement.Load();
->>>>>>> origin/master
         }
 
         public void listHomeLineTweets()
