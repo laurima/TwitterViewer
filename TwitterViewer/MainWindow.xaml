@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:TwitterViewer"
         mc:Ignorable="d"
         Title="TwitterViewr" Width="1100" SizeToContent="Height">
-
     <Window.Resources>
         <ResourceDictionary Source="appearanceDictionary.xaml"></ResourceDictionary>
     </Window.Resources>
@@ -56,6 +55,13 @@
                          x:Name="lw_categories"
                          ItemsSource="{Binding}" SelectionChanged="lw_categories_SelectionChanged"
                          />
+                    <Button x:Name="btn_updatecategories" 
+                        Content="Update" 
+                        VerticalAlignment="Bottom" 
+                        MaxWidth="110"
+                        Click="btn_updatecategories_Click"
+                        Margin="10,10,10,10"
+                        />
                 </StackPanel>
                 <StackPanel Orientation="Vertical" MinWidth="100" MaxWidth="900" >
                     <!-- Tweets by selected user or category appears here -->
