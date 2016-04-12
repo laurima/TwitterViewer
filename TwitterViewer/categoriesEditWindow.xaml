@@ -49,9 +49,9 @@
             <StackPanel>
                 <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center">Users in category</TextBlock>
                 <ListView Style="{StaticResource listStyle}"
-                    VerticalAlignment="Bottom"
+                    VerticalAlignment="Stretch"
                     x:Name="lw_usersincategory"
-                    ItemsSource="{Binding}"
+                    ItemTemplate="{StaticResource followerTemplate}"
                     />
                 <Button x:Name="btn_addusertocategory" 
                         Content="Add user to category" 

@@ -24,6 +24,7 @@ namespace TwitterViewer
     /// </summary>
     public partial class MainWindow : Window
     {
+        public event EventHandler signalEvent;
         public MainWindow()
         {
             
@@ -116,6 +117,11 @@ namespace TwitterViewer
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        void updateSignal()
+        {
+            listCategories();
         }
 
         public void listCategories()
