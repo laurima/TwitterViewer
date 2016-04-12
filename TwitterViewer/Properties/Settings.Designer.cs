@@ -100,5 +100,17 @@ namespace TwitterViewer.Properties {
                 this["CategoriesJSON"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Z:\\GitHub\\TwitterViewer\\Categories.xml")]
+        public string CategoriesXML {
+            get {
+                return ((string)(this["CategoriesXML"]));
+            }
+            set {
+                this["CategoriesXML"] = value;
+            }
+        }
     }
 }

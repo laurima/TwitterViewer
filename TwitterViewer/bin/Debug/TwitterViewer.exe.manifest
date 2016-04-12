@@ -85,17 +85,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Qj9s/afSoKWs0e2wh5+uKDdG7X1bY2cizEqtbKBo3GU=</dsig:DigestValue>
+        <dsig:DigestValue>1I1dhesSeZZNb1DSL1FXGL8lLJ2mAfb0d87EPRba0c0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="TwitterViewer.exe.config" size="2683">
+  <file name="TwitterViewer.exe.config" size="2823">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>QymMgHNdfT/jM+gDGJO272k0SnIt6U/XEe01hNaysrE=</dsig:DigestValue>
+      <dsig:DigestValue>GYmHhOe/r2LOfPwXl1d601Soedu0zHaX3fNzC9uXCp0=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

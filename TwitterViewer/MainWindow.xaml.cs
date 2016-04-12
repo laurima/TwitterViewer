@@ -26,19 +26,14 @@ namespace TwitterViewer
     {
         public MainWindow()
         {
-            XElement xe;
+            
             InitializeComponent();
             //BLTwitterViewer.testauthenticate();
             TwitterViewer.Properties.Settings.Default.FollowedUsersJSON = System.IO.Path.GetTempPath() + "\\FollowedUsers.json";
             BLTwitterViewer.updateFollowedUsersJson();
             listFollowedUsers();
             listHomeLineTweets();
-            listCategories();
-        }
-
-        public void listCategories()
-        {
-           // xe = XElement.Load();
+            DBTwitterViewer.ReadCategoriesXML();
         }
         public void listHomeLineTweets()
         {

@@ -55,7 +55,7 @@ namespace TwitterViewer
             try
             {
                 Type type = typeof(string);
-                JObject jobject = DBTwitterViewer.ReadCategoriesJSON();
+                JObject jobject = DBTwitterViewer.ReadCategoriesXML();
                 /*string tmp = JsonConvert.DeserializeObject(jobject["category"].ToString(), type); is not yet functional
                 //DBTwitterViewer.SerializeCategory(category);
                 MessageBox.Show(tmp);*/

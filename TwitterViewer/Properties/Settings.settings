@@ -23,5 +23,8 @@
     <Setting Name="CategoriesJSON" Type="System.String" Scope="User">
       <Value Profile="(Default)">Z:\GitHub\TwitterViewer\Categories.json</Value>
     </Setting>
+    <Setting Name="CategoriesXML" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Z:\GitHub\TwitterViewer\Categories.xml</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

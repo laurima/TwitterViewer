@@ -7,6 +7,7 @@ using System.Windows;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using System.Xml.Linq;
 
 namespace TwitterViewer
 {
@@ -22,16 +23,20 @@ namespace TwitterViewer
             }*/
         }
 
-        public static JObject ReadCategoriesJSON()
+        public static JObject ReadCategoriesXML()
         {
-            JObject o1;
-            using (StreamReader file = System.IO.File.OpenText(TwitterViewer.Properties.Settings.Default.CategoriesJSON))
-            using (JsonTextReader reader = new JsonTextReader(file))
+            /*XElement xe;
+            try
             {
-                JObject o2 = (JObject)JToken.ReadFrom(reader);
-                o1 = o2;
+                xe = XElement.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+                var categories = from ele in xe.Elements()
+
             }
-            return o1;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }*/
+            return null;
         }
 
         public static List<Category> DeserializeCategories()
