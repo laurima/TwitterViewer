@@ -34,14 +34,16 @@
                     />
                 <TextBox x:Name="tb_addcategory"></TextBox>
                 <Button x:Name="btn_addcategory" 
-                        Content="Add Category" 
+                        Content="Add" 
                         VerticalAlignment="Bottom" 
                         MaxWidth="100" Click="btn_addcategory_Click"
+                        Margin="10,10,10,10"
                         />
                 <Button x:Name="btn_removecategory" 
-                        Content="Remove Category" 
+                        Content="Remove" 
                         VerticalAlignment="Bottom" 
                         MaxWidth="100" Click="btn_removecategory_Click"
+                        Margin="10,0,10,10"
                         />
             </StackPanel>
             <StackPanel>
@@ -54,7 +56,15 @@
                 <Button x:Name="btn_addusertocategory" 
                         Content="Add user to category" 
                         VerticalAlignment="Bottom" 
-                        MaxWidth="100" Click="btn_addusertocategory_Click"
+                        MaxWidth="150" 
+                        Click="btn_addusertocategory_Click"
+                        Margin="10,10,10,10"
+                        />
+                <Button x:Name="btn_deluserfromcategory" 
+                        Content="Delete user from category" 
+                        VerticalAlignment="Bottom" 
+                        MaxWidth="150"
+                        Margin="10,0,10,10" Click="btn_deluserfromcategory_Click"
                         />
             </StackPanel>
         </StackPanel>

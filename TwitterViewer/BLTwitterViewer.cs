@@ -95,6 +95,18 @@ namespace TwitterViewer
             }
         }
 
+        public static void delUserFromCategory(string category, User user)
+        {
+            try
+            {
+                DBTwitterViewer.deleteUserFromCategory(category, user);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not delete user from category " + ex.Message);
+            }
+        }
+
         public static List<String> getCategories()
         {
             return DBTwitterViewer.ReadCategoriesFromXML();

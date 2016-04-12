@@ -79,5 +79,12 @@ namespace TwitterViewer
             User user = new User(lw_followedusers.SelectedItem.ToString().Split()[1]);
             BLTwitterViewer.addUserToCategory(category, user);
         }
+
+        private void btn_deluserfromcategory_Click(object sender, RoutedEventArgs e)
+        {
+            string category = lw_categories.SelectedItem.ToString();
+            User user = new User(lw_followedusers.SelectedItem.ToString().Split()[1]);
+            BLTwitterViewer.delUserFromCategory(category, user);
+        }
     }
 }

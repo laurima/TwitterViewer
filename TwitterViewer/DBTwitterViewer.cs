@@ -69,6 +69,23 @@ namespace TwitterViewer
             }
         }
 
+        public static void deleteUserFromCategory(string category, User user)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            try
+            {
+                xmlDoc.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+                XmlNode root = xmlDoc.SelectSingleNode("/categories/category");
+                XmlNode deluser = xmlDoc.SelectSingleNode(string.Format("/categories/category[@categoryname='{0}']/users/user[contains(., '{1}')]", category, user));
+                root.RemoveChild(deluser);
+                xmlDoc.Save(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static List<string> ReadCategoriesFromXML()
         {
             List<string> categorynames = new List<string>();
