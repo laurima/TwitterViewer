@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TweetSharp;
+using System.Xml.Linq;
 
 namespace TwitterViewer
 {
@@ -25,15 +26,20 @@ namespace TwitterViewer
     {
         public MainWindow()
         {
+            XElement xe;
             InitializeComponent();
             //BLTwitterViewer.testauthenticate();
             TwitterViewer.Properties.Settings.Default.FollowedUsersJSON = System.IO.Path.GetTempPath() + "\\FollowedUsers.json";
             BLTwitterViewer.updateFollowedUsersJson();
             listFollowedUsers();
             listHomeLineTweets();
+            listCategories();
         }
 
-
+        public void listCategories()
+        {
+           // xe = XElement.Load();
+        }
         public void listHomeLineTweets()
         {
             List<Tweet> tweets = BLTwitterViewer.getUserTimeLine();
