@@ -55,9 +55,6 @@ namespace TwitterViewer
                 }
 
             }
-                
-
-           // xe = XElement.Load();
         }
 
         public void listHomeLineTweets()
@@ -135,6 +132,19 @@ namespace TwitterViewer
         {
             BLTwitterViewer.updateFollowedUsersJson();
             listFollowedUsers();
+        }
+
+        private void lw_categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string category = lw_categories.SelectedItem.ToString();
+            try
+            {
+                lw_selectedtweets.ItemsSource = BLTwitterViewer.getTweetsByCategory(category);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

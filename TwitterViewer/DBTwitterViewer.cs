@@ -69,6 +69,26 @@ namespace TwitterViewer
             }
         }
 
+        public static List<User> getUsersInCategory(string category)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            List<User> usersincategory = new List<User>();
+            try
+            {
+                xmlDoc.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+                XmlNode users = xmlDoc.SelectSingleNode(string.Format("/categories/category[@categoryname='{0}']/users", category));
+                foreach (XmlNode user in users)
+                {
+                    usersincategory.Add(new User(user.InnerText));
+                }
+                return usersincategory;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static List<string> ReadCategoriesFromXML()
         {
             List<string> categorynames = new List<string>();

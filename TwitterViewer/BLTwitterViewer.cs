@@ -95,9 +95,46 @@ namespace TwitterViewer
             }
         }
 
+        public static List<User> getUsersByCategory(string category)
+        {
+           return DBTwitterViewer.getUsersInCategory(category);
+        }
+
         public static List<String> getCategories()
         {
             return DBTwitterViewer.ReadCategoriesFromXML();
+        }
+
+        public static List<Tweet> getTweetsByCategory(string category)
+        {
+            List<Tweet> homelinetweets = new List<Tweet>();
+            List<User> users = getUsersByCategory(category);
+            try
+            {
+                IEnumerable<TwitterStatus> tweets = service.ListTweetsOnHomeTimeline(new ListTweetsOnHomeTimelineOptions { Count = 200 });
+
+                for (int i = 0; i < tweets.Count(); i++)
+                {
+                    if (tweets.ElementAt(i).Id != 0)
+                    {
+                        TwitterStatus tweet = tweets.ElementAt(i);
+                        foreach (User user in users)
+                        {
+                            if (user.Screenname == tweet.User.ScreenName)
+                            {
+                                homelinetweets.Add(new Tweet(new User(tweet.User.Id, tweet.User.ScreenName), tweet.Text));
+                            }
+                        }
+
+                    }
+                }
+                return homelinetweets;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return homelinetweets;
+            }
         }
 
         public static void updateFollowedUsersJson()

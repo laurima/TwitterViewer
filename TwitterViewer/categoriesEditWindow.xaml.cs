@@ -57,13 +57,18 @@ namespace TwitterViewer
 
         private void lw_categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //BLTwitterViewer.
-
+            string category = lw_categories.SelectedItem.ToString();
+            listUsersInCategory(category);
         }
 
         public void listCategories()
         {
             lw_categories.ItemsSource = BLTwitterViewer.getCategories();
+        }
+
+        private void listUsersInCategory(string category)
+        {
+            lw_usersincategory.ItemsSource = BLTwitterViewer.getUsersByCategory(category);
         }
 
         private void btn_removecategory_Click(object sender, RoutedEventArgs e)
