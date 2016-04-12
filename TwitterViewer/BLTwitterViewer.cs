@@ -89,10 +89,18 @@ namespace TwitterViewer
                 for (int id = 0; id < friendids.Count(); id++)
                 {
                     TwitterFriendship info = service.GetFriendshipInfo(new GetFriendshipInfoOptions { SourceId = TwitterViewer.Properties.Settings.Default.UserID, TargetId = friendids[id].ToString() });
-                    followedusers.Add(new User(info.Relationship.Target.Id, info.Relationship.Target.ScreenName));
+                    if (info != null)
+                    {
+                        followedusers.Add(new User(info.Relationship.Target.Id, info.Relationship.Target.ScreenName));
+                    }
+                    
                 }
 
-                DBTwitterViewer.SerializeFollowedUsers(followedusers);
+                if (followedusers.Count() > 0)
+                {
+                    DBTwitterViewer.SerializeFollowedUsers(followedusers);
+                }
+                
             }
             catch (Exception ex)
             {
