@@ -83,13 +83,15 @@ namespace TwitterViewer
             string category = lw_categories.SelectedItem.ToString();
             User user = new User(lw_followedusers.SelectedItem.ToString().Split()[1]);
             BLTwitterViewer.addUserToCategory(category, user);
+            listUsersInCategory(category);
         }
 
         private void btn_deluserfromcategory_Click(object sender, RoutedEventArgs e)
         {
             string category = lw_categories.SelectedItem.ToString();
-            User user = new User(lw_followedusers.SelectedItem.ToString().Split()[1]);
+            User user = new User(lw_usersincategory.SelectedItem.ToString().Split()[1]);
             BLTwitterViewer.delUserFromCategory(category, user);
+            listUsersInCategory(category);
         }
     }
 }
