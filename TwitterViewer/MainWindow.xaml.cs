@@ -22,9 +22,9 @@ namespace TwitterViewer
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
-        public event EventHandler signalEvent;
         public MainWindow()
         {
             
@@ -119,11 +119,6 @@ namespace TwitterViewer
             }
         }
 
-        void updateSignal()
-        {
-            listCategories();
-        }
-
         public void listCategories()
         {
             lw_categories.ItemsSource = BLTwitterViewer.getCategories();
@@ -151,6 +146,11 @@ namespace TwitterViewer
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btn_updatecategories_Click(object sender, RoutedEventArgs e)
+        {
+            showCategories();
         }
     }
 }
