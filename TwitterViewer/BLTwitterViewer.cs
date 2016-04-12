@@ -95,7 +95,6 @@ namespace TwitterViewer
             }
         }
 
-<<<<<<< HEAD
         public static void delUserFromCategory(string category, User user)
         {
             try
@@ -106,11 +105,10 @@ namespace TwitterViewer
             {
                 MessageBox.Show("Could not delete user from category " + ex.Message);
             }
-=======
+        }
         public static List<User> getUsersByCategory(string category)
         {
            return DBTwitterViewer.getUsersInCategory(category);
->>>>>>> origin/master
         }
 
         public static List<String> getCategories()
