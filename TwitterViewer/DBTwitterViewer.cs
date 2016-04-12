@@ -14,38 +14,86 @@ namespace TwitterViewer
 {
     class DBTwitterViewer
     {
-        public static void AddCategoryToXML(string category)
+        public static void addCategoryToXML(string category)
         {
-            List<char> list = new List<char>();
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
-            foreach (XmlNode xmlNode in xmlDoc.DocumentElement.ChildNodes[1].ChildNodes[0].ChildNodes)
+            try
             {
-                list = xmlNode.Attributes["categoryname"].InnerText.ToList();
+                xmlDoc.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+                XmlNode root = xmlDoc.SelectSingleNode("/categories");
+                XmlElement elem = xmlDoc.CreateElement("category");
+                elem.SetAttribute("categoryname", category);
+                XmlElement users = xmlDoc.CreateElement("users");
+                elem.AppendChild(users);
+                root.AppendChild(elem);
+                xmlDoc.Save(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
-        public static List<char> ReadCategoriesFromXML()
+        public static void deleteCategoryFromXML(string category)
         {
-            List<char> list = new List<char>();
             XmlDocument xmlDoc = new XmlDocument();
-            if (File.Exists(TwitterViewer.Properties.Settings.Default.CategoriesXML))
+            try
             {
                 xmlDoc.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
-                XmlNodeList xnList = xmlDoc.SelectNodes("/Categories");
-                foreach (XmlNode xn in xnList)
+                XmlNode root = xmlDoc.SelectSingleNode("/categories");
+                XmlNode delcategory = xmlDoc.SelectSingleNode(string.Format("/categories/category[@categoryname='{0}']", category));
+                root.RemoveChild(delcategory);
+                xmlDoc.Save(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void insertUserToCategory(string category, User user)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            try
+            {
+                xmlDoc.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+                XmlNode root = xmlDoc.SelectSingleNode(string.Format("/categories/category[@categoryname='{0}']/users", category));
+                XmlElement elem = xmlDoc.CreateElement("user");
+                elem.InnerText = user.Screenname;
+                root.AppendChild(elem);
+                xmlDoc.Save(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<string> ReadCategoriesFromXML()
+        {
+            List<string> categorynames = new List<string>();
+            XmlDocument xmlDoc = new XmlDocument();
+            try
+            {
+                if (File.Exists(TwitterViewer.Properties.Settings.Default.CategoriesXML))
                 {
-                    if (xn.Attributes["categoryname"] != null)
+                    xmlDoc.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+                    XmlNodeList categories = xmlDoc.SelectNodes("/categories/category");
+                    foreach (XmlNode category in categories)
                     {
-                        list = xn.Attributes["categoryname"].InnerText.ToList();
+                        categorynames.Add(category.Attributes["categoryname"].Value);
                     }
                 }
+                else
+                {
+                    createNewXML();
+                }
+                return categorynames;
             }
-            else
+            catch (Exception ex)
             {
-                createNewXML();
+                throw ex;
             }
-            return list;
         }
 
         public static void createNewXML()

@@ -52,7 +52,6 @@
                 </StackPanel>
                 <StackPanel Orientation="Vertical" MinWidth="100" MaxWidth="200">
                     <!-- Categories appears here -->
-
                     <ListView Style="{StaticResource listStyle}" 
                          x:Name="lw_categories"
                          ItemsSource="{Binding}"

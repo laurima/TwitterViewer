@@ -59,27 +59,45 @@ namespace TwitterViewer
             }
         }
 
-        public static void AddCategory(string category)
+        public static void addCategory(string category)
         {
             try
             {
-                DBTwitterViewer.AddCategoryToXML(category);
+                DBTwitterViewer.addCategoryToXML(category);
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Could not add category " + ex.Message);
             }
         }
 
-        public static void saveCategory(List<String> category)
+        public static void removeCategory(string category)
         {
+            try
+            {
+                DBTwitterViewer.deleteCategoryFromXML(category);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not remove category " + ex.Message);
+            }
         }
-        public static List<char> getCategories()
-        {
 
-            List<char> categories = DBTwitterViewer.ReadCategoriesFromXML();
-            return categories;
+        public static void addUserToCategory(string category, User user)
+        {
+            try
+            {
+                DBTwitterViewer.insertUserToCategory(category, user);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not add user to category " + ex.Message);
+            }
+        }
+
+        public static List<String> getCategories()
+        {
+            return DBTwitterViewer.ReadCategoriesFromXML();
         }
 
         public static void updateFollowedUsersJson()

@@ -40,25 +40,44 @@ namespace TwitterViewer
                 }
             }
 
-            lw_categories.ItemsSource = BLTwitterViewer.getCategories();
-    }
+            listCategories();
+        }
 
         private void CloseCommandHandler(object sender, ExecutedRoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void btn_addcategories_Click(object sender, RoutedEventArgs e)
+        private void btn_addcategory_Click(object sender, RoutedEventArgs e)
         {
-            var ctgrybtn = tb_addcategories.Text;
-            MessageBox.Show(" !!!test!!! Category: " + ctgrybtn);
-            BLTwitterViewer.AddCategory(ctgrybtn);
+            string category = tb_addcategory.Text;
+            BLTwitterViewer.addCategory(category);
+            listCategories();
         }
 
         private void lw_categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //BLTwitterViewer.
 
+        }
+
+        public void listCategories()
+        {
+            lw_categories.ItemsSource = BLTwitterViewer.getCategories();
+        }
+
+        private void btn_removecategory_Click(object sender, RoutedEventArgs e)
+        {
+            string category = lw_categories.SelectedItem.ToString();
+            BLTwitterViewer.removeCategory(category);
+            listCategories();
+        }
+
+        private void btn_addusertocategory_Click(object sender, RoutedEventArgs e)
+        {
+            string category = lw_categories.SelectedItem.ToString();
+            User user = new User(lw_followedusers.SelectedItem.ToString().Split()[1]);
+            BLTwitterViewer.addUserToCategory(category, user);
         }
     }
 }

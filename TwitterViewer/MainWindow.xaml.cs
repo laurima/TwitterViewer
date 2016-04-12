@@ -40,7 +40,7 @@ namespace TwitterViewer
 
         public void showCategories()
         {
-            List<char> categories = BLTwitterViewer.getCategories();
+            List<string> categories = BLTwitterViewer.getCategories();
             if (categories.Count > 0 && categories != null)
             {
                 try
@@ -119,6 +119,11 @@ namespace TwitterViewer
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        public void listCategories()
+        {
+            lw_categories.ItemsSource = BLTwitterViewer.getCategories();
         }
 
         private void btn_showtimeline_Click(object sender, RoutedEventArgs e)

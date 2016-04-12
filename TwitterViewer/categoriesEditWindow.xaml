@@ -32,20 +32,30 @@
                     x:Name="lw_categories"
                     ItemsSource="{Binding}" SelectionChanged="lw_categories_SelectionChanged"
                     />
-                <TextBox x:Name="tb_addcategories"></TextBox>
-                <Button x:Name="btn_addcategories" 
-                        Content="Add Categories" 
+                <TextBox x:Name="tb_addcategory"></TextBox>
+                <Button x:Name="btn_addcategory" 
+                        Content="Add Category" 
                         VerticalAlignment="Bottom" 
-                        MaxWidth="100" Click="btn_addcategories_Click"
+                        MaxWidth="100" Click="btn_addcategory_Click"
+                        />
+                <Button x:Name="btn_removecategory" 
+                        Content="Remove Category" 
+                        VerticalAlignment="Bottom" 
+                        MaxWidth="100" Click="btn_removecategory_Click"
                         />
             </StackPanel>
             <StackPanel>
-                <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center">Categories</TextBlock>
+                <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center">Users in category</TextBlock>
                 <ListBox Style="{StaticResource listStyle}"
                     VerticalAlignment="Bottom"
-                    x:Name="lb_categoriesAndUsers"
+                    x:Name="lb_usersincategory"
                     ItemsSource="{Binding}"
                     />
+                <Button x:Name="btn_addusertocategory" 
+                        Content="Add user to category" 
+                        VerticalAlignment="Bottom" 
+                        MaxWidth="100" Click="btn_addusertocategory_Click"
+                        />
             </StackPanel>
         </StackPanel>
         <Button Command="ApplicationCommands.Close" 
