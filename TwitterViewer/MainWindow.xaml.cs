@@ -30,6 +30,7 @@ namespace TwitterViewer
             InitializeComponent();
             //BLTwitterViewer.testauthenticate();
             TwitterViewer.Properties.Settings.Default.FollowedUsersJSON = System.IO.Path.GetTempPath() + "\\FollowedUsers.json";
+            TwitterViewer.Properties.Settings.Default.CategoriesXML = System.IO.Path.GetTempPath() + "\\Categories.xml";
             BLTwitterViewer.updateFollowedUsersJson();
             listFollowedUsers();
             listHomeLineTweets();
@@ -39,7 +40,23 @@ namespace TwitterViewer
 
         public void showCategories()
         {
-            BLTwitterViewer.getCategories();
+            List<char> categories = BLTwitterViewer.getCategories();
+            if (categories.Count > 0 && categories != null)
+            {
+                try
+                {
+                    lw_categories.ItemsSource = categories;
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Error when trying to get categories from xml: " + ex.Message);
+                }
+
+            }
+                
+
            // xe = XElement.Load();
         }
 

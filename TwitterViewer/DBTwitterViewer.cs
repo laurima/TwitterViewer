@@ -8,85 +8,53 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Xml.Linq;
+using System.Xml;
 
 namespace TwitterViewer
 {
     class DBTwitterViewer
     {
-        public static void SerializeCategory(string category)
-        {
-            /*var ctgrytmp = JsonConvert.SerializeObject(category);
-
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(TwitterViewer.Properties.Settings.Default.CategoriesJSON, false))
-            {
-                    file.WriteLine(ctgrytmp);
-            }*/
-        }
-        public static List<String> ReadCategoriesXML()
-        {
-            //next
-            return null;
-        }
-
         public static void AddCategoryToXML(string category)
         {
-
+            List<char> list = new List<char>();
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+            foreach (XmlNode xmlNode in xmlDoc.DocumentElement.ChildNodes[1].ChildNodes[0].ChildNodes)
+            {
+                list = xmlNode.Attributes["categoryname"].InnerText.ToList();
+            }
         }
 
-
-        /*public static XElement ReadCategoriesXML()
+        public static List<char> ReadCategoriesFromXML()
         {
-            XElement modelXML = new XElement("Category",
-                new XElement("categories",
-                    new XElement("users",
-                        new XElement("user")
-                        )
-                    )
-                );
-            try
+            List<char> list = new List<char>();
+            XmlDocument xmlDoc = new XmlDocument();
+            if (File.Exists(TwitterViewer.Properties.Settings.Default.CategoriesXML))
             {
-                modelXML = XElement.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading XML from file: " + ex.Message);
-            }
-            return modelXML;
-        }
-
-        public static void AddCategoryToXML(string category)
-        {
-            XElement xe = ReadCategoriesXML();
-            XElement newCategory = IncomingChildElement(category);
-            xe.Add(newCategory);
-            xe.Save(TwitterViewer.Properties.Settings.Default.CategoriesXML);
-        }
-
-        private static XElement IncomingChildElement(string categoryName)
-        {
-            {
-                XElement category = new XElement("Category",
-                        new XElement("categories",
-                            new XElement(categoryName)
-                        )
-                );
-                return category;
-            }
-        }*/
-
-        public static List<Category> DeserializeCategories()
-        {
-            List<Category> desrializedcategories = new List<Category>();
-            using (System.IO.StreamReader file = new System.IO.StreamReader(TwitterViewer.Properties.Settings.Default.CategoriesJSON, false))
-            {
-                string line;
-                while ((line = file.ReadLine()) != null)
+                xmlDoc.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+                XmlNodeList xnList = xmlDoc.SelectNodes("/Categories");
+                foreach (XmlNode xn in xnList)
                 {
-                    desrializedcategories.Add(JsonConvert.DeserializeObject<Category>(line));
+                    if (xn.Attributes["categoryname"] != null)
+                    {
+                        list = xn.Attributes["categoryname"].InnerText.ToList();
+                    }
                 }
-
             }
-            return desrializedcategories;
+            else
+            {
+                createNewXML();
+            }
+            return list;
+        }
+
+        public static void createNewXML()
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml("<categories><category categoryname='Test'><users></users></category></categories>");
+            XmlTextWriter writer = new XmlTextWriter(TwitterViewer.Properties.Settings.Default.CategoriesXML, null);
+            writer.Formatting = System.Xml.Formatting.Indented;
+            doc.Save(writer);
         }
 
         public static void SerializeFollowedUsers(List<User> users)
@@ -122,6 +90,5 @@ namespace TwitterViewer
             }
             return deserializedobjects;
         }
-
     }
 }

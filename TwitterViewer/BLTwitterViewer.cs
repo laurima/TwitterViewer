@@ -74,13 +74,11 @@ namespace TwitterViewer
 
         public static void saveCategory(List<String> category)
         {
-            /*XElement xetmp = new XElement();
-            xetmp.Add(categories);*/
         }
-        public static List<String> getCategories()
+        public static List<char> getCategories()
         {
 
-            List<String> categories = DBTwitterViewer.ReadCategoriesXML();
+            List<char> categories = DBTwitterViewer.ReadCategoriesFromXML();
             return categories;
         }
 

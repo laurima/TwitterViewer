@@ -40,6 +40,7 @@ namespace TwitterViewer
                 }
             }
 
+            lw_categories.ItemsSource = BLTwitterViewer.getCategories();
     }
 
         private void CloseCommandHandler(object sender, ExecutedRoutedEventArgs e)
