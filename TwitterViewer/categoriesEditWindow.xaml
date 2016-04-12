@@ -48,9 +48,9 @@
             </StackPanel>
             <StackPanel>
                 <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center">Users in category</TextBlock>
-                <ListBox Style="{StaticResource listStyle}"
+                <ListView Style="{StaticResource listStyle}"
                     VerticalAlignment="Bottom"
-                    x:Name="lb_usersincategory"
+                    x:Name="lw_usersincategory"
                     ItemsSource="{Binding}"
                     />
                 <Button x:Name="btn_addusertocategory" 

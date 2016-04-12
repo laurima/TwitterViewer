@@ -69,6 +69,7 @@ namespace TwitterViewer
             }
         }
 
+<<<<<<< HEAD
         public static void deleteUserFromCategory(string category, User user)
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -79,6 +80,21 @@ namespace TwitterViewer
                 XmlNode deluser = xmlDoc.SelectSingleNode(string.Format("/categories/category[@categoryname='{0}']/users/user[contains(., '{1}')]", category, user));
                 root.RemoveChild(deluser);
                 xmlDoc.Save(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+=======
+        public static List<User> getUsersInCategory(string category)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            List<User> usersincategory = new List<User>();
+            try
+            {
+                xmlDoc.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+                XmlNode users = xmlDoc.SelectSingleNode(string.Format("/categories/category[@categoryname='{0}']/users", category));
+                foreach (XmlNode user in users)
+                {
+                    usersincategory.Add(new User(user.InnerText));
+                }
+                return usersincategory;
+>>>>>>> origin/master
             }
             catch (Exception ex)
             {

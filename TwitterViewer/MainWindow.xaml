@@ -54,7 +54,7 @@
                     <!-- Categories appears here -->
                     <ListView Style="{StaticResource listStyle}" 
                          x:Name="lw_categories"
-                         ItemsSource="{Binding}"
+                         ItemsSource="{Binding}" SelectionChanged="lw_categories_SelectionChanged"
                          />
                 </StackPanel>
                 <StackPanel Orientation="Vertical" MinWidth="100" MaxWidth="900" >
