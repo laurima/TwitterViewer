@@ -32,6 +32,7 @@ namespace TwitterViewer
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
+            Mouse.OverrideCursor = Cursors.Wait;
             BLTwitterViewer.OauthAccess(tb_pincode.Text);
             BLTwitterViewer.authenticate();
 

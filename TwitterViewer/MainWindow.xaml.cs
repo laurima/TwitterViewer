@@ -34,6 +34,7 @@ namespace TwitterViewer
             listFollowedUsers();
             listHomeLineTweets();
             listCategories();
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
         public void listCategories()
