@@ -63,28 +63,23 @@ namespace TwitterViewer
         {
             try
             {
-
-                /*Type type = typeof(string);
-                JObject jobject = DBTwitterViewer.ReadCategoriesXML();
-                string tmp = JsonConvert.DeserializeObject(jobject["category"].ToString(), type); is not yet functional
-                //DBTwitterViewer.SerializeCategory(category);
-                MessageBox.Show(tmp);*/
+                DBTwitterViewer.AddCategoryToXML(category);
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Could not add category " + ex.Message);
             }
         }
 
-        public static void saveCategories(List<String> categories)
+        public static void saveCategory(List<String> category)
         {
             /*XElement xetmp = new XElement();
             xetmp.Add(categories);*/
         }
         public static List<String> getCategories()
         {
-            
+
             List<String> categories = DBTwitterViewer.ReadCategoriesXML();
             return categories;
         }

@@ -11,7 +11,7 @@ using System.Xml.Linq;
 
 namespace TwitterViewer
 {
-    static class DBTwitterViewer
+    class DBTwitterViewer
     {
         public static void SerializeCategory(string category)
         {
@@ -22,23 +22,57 @@ namespace TwitterViewer
                     file.WriteLine(ctgrytmp);
             }*/
         }
-
         public static List<String> ReadCategoriesXML()
         {
-            XElement xe;
+            //next
+            return null;
+        }
+
+        public static void AddCategoryToXML(string category)
+        {
+
+        }
+
+
+        /*public static XElement ReadCategoriesXML()
+        {
+            XElement modelXML = new XElement("Category",
+                new XElement("categories",
+                    new XElement("users",
+                        new XElement("user")
+                        )
+                    )
+                );
             try
             {
-                XElement rootElement = XElement.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
-                var childElement = rootElement.Descendants("child")
-                           .Single(e => e.Attribute("label").Value == "child1");
-
+                modelXML = XElement.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error loading XML from file: " + ex.Message);
             }
-            return null;
+            return modelXML;
         }
+
+        public static void AddCategoryToXML(string category)
+        {
+            XElement xe = ReadCategoriesXML();
+            XElement newCategory = IncomingChildElement(category);
+            xe.Add(newCategory);
+            xe.Save(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+        }
+
+        private static XElement IncomingChildElement(string categoryName)
+        {
+            {
+                XElement category = new XElement("Category",
+                        new XElement("categories",
+                            new XElement(categoryName)
+                        )
+                );
+                return category;
+            }
+        }*/
 
         public static List<Category> DeserializeCategories()
         {

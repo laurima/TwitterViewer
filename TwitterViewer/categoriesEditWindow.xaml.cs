@@ -56,6 +56,7 @@ namespace TwitterViewer
 
         private void lw_categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //BLTwitterViewer.
 
         }
     }
