@@ -43,6 +43,21 @@
                            />
             </StackPanel>
         </DataTemplate>
+    <DataTemplate x:Key="usersInCategoryTemplate">
+        <StackPanel Orientation="Horizontal">
+            <Image x:Name="img_followedimg" 
+                       Stretch="Fill" 
+                       Height="32" 
+                       Width="32" 
+                       VerticalAlignment="Center"
+                       Source="{Binding Profilepic}">
+            </Image>
+            <TextBlock x:Name="tb_categoryusers" 
+                           VerticalAlignment="Center"
+                           Text="{Binding Screenname}" 
+                           />
+        </StackPanel>
+    </DataTemplate>
     <Style x:Key="listStyle" TargetType="ListBox">
         <Setter Property="Background" Value="LightBlue" />
         <Setter Property="Padding" Value="8,4" />

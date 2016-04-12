@@ -51,7 +51,8 @@
                 <ListView Style="{StaticResource listStyle}"
                     VerticalAlignment="Bottom"
                     x:Name="lw_usersincategory"
-                    ItemsSource="{Binding}"
+
+                    ItemTemplate="{StaticResource usersInCategoryTemplate}"
                     />
                 <Button x:Name="btn_addusertocategory" 
                         Content="Add user to category" 

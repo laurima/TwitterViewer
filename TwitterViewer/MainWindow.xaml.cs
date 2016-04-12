@@ -24,6 +24,7 @@ namespace TwitterViewer
     /// </summary>
     public partial class MainWindow : Window
     {
+        public event EventHandler signalEvent;
         public MainWindow()
         {
             
@@ -36,6 +37,7 @@ namespace TwitterViewer
             listHomeLineTweets();
             showCategories();
             Mouse.OverrideCursor = Cursors.Arrow;
+            this.Loaded += new RoutedEventHandler(signal_Loaded);
         }
 
         public void showCategories()
@@ -116,6 +118,11 @@ namespace TwitterViewer
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        void updateSignal()
+        {
+            listCategories();
         }
 
         public void listCategories()
