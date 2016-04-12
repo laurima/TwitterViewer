@@ -75,9 +75,8 @@ namespace TwitterViewer
             try
             {
                 xmlDoc.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
-                XmlNode root = xmlDoc.SelectSingleNode("/categories/category");
-                XmlNode deluser = xmlDoc.SelectSingleNode(string.Format("/categories/category[@categoryname='{0}']/users/user[contains(., '{1}')]", category, user));
-                root.RemoveChild(deluser);
+                XmlNode deluser = xmlDoc.SelectSingleNode(string.Format("/categories/category[@categoryname='{0}']/users/user[text()='{1}']", category, user.Screenname));
+                deluser.ParentNode.RemoveChild(deluser);
                 xmlDoc.Save(TwitterViewer.Properties.Settings.Default.CategoriesXML);
             }
             catch (Exception ex)

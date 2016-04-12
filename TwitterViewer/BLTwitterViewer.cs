@@ -106,6 +106,7 @@ namespace TwitterViewer
                 MessageBox.Show("Could not delete user from category " + ex.Message);
             }
         }
+
         public static List<User> getUsersByCategory(string category)
         {
            return DBTwitterViewer.getUsersInCategory(category);
