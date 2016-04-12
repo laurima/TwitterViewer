@@ -45,9 +45,18 @@ namespace TwitterViewer
             accessToken = service.GetAccessToken(requestToken, pin);
         }
 
-        public static void authenticate()
+        public static bool authenticate()
         {
             service.AuthenticateWith(accessToken.Token, accessToken.TokenSecret);
+
+            if (service.Response.StatusCode.ToString().Equals("OK"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static void AddCategory(string category)

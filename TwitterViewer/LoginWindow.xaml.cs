@@ -32,14 +32,23 @@ namespace TwitterViewer
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
-            Mouse.OverrideCursor = Cursors.Wait;
+            
             BLTwitterViewer.OauthAccess(tb_pincode.Text);
-            BLTwitterViewer.authenticate();
 
-            MainWindow main = new MainWindow();
-            App.Current.MainWindow = main;
-            this.Close();
-            main.Show();
+            if (BLTwitterViewer.authenticate())
+            {
+                Mouse.OverrideCursor = Cursors.Wait;
+                MainWindow main = new MainWindow();
+                App.Current.MainWindow = main;
+                this.Close();
+                main.Show();
+            }
+            else
+            {
+                MessageBox.Show("Pincode was invalid. Please try again with new pincode.");
+            }
+
+            
         }
     }
 }
