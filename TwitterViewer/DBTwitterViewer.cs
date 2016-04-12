@@ -23,19 +23,20 @@ namespace TwitterViewer
             }*/
         }
 
-        public static JObject ReadCategoriesXML()
+        public static List<String> ReadCategoriesXML()
         {
-            /*XElement xe;
+            XElement xe;
             try
             {
-                xe = XElement.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
-                var categories = from ele in xe.Elements()
+                XElement rootElement = XElement.Load(TwitterViewer.Properties.Settings.Default.CategoriesXML);
+                var childElement = rootElement.Descendants("child")
+                           .Single(e => e.Attribute("label").Value == "child1");
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }*/
+            }
             return null;
         }
 

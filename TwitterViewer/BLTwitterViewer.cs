@@ -54,9 +54,10 @@ namespace TwitterViewer
         {
             try
             {
-                Type type = typeof(string);
+
+                /*Type type = typeof(string);
                 JObject jobject = DBTwitterViewer.ReadCategoriesXML();
-                /*string tmp = JsonConvert.DeserializeObject(jobject["category"].ToString(), type); is not yet functional
+                string tmp = JsonConvert.DeserializeObject(jobject["category"].ToString(), type); is not yet functional
                 //DBTwitterViewer.SerializeCategory(category);
                 MessageBox.Show(tmp);*/
             }
@@ -72,11 +73,11 @@ namespace TwitterViewer
             /*XElement xetmp = new XElement();
             xetmp.Add(categories);*/
         }
-        public static List<String> showCategories()
+        public static List<String> getCategories()
         {
-            XElement xetmp;
-            List<String> list = new List<string>();
-            return list;
+            
+            List<String> categories = DBTwitterViewer.ReadCategoriesXML();
+            return categories;
         }
 
         public static void updateFollowedUsersJson()
