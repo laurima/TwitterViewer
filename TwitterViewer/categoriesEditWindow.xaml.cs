@@ -57,8 +57,15 @@ namespace TwitterViewer
 
         private void lw_categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string category = lw_categories.SelectedItem.ToString();
-            listUsersInCategory(category);
+            try
+            {
+                string category = lw_categories.SelectedItem.ToString();
+                listUsersInCategory(category);
+            }
+            catch (Exception)
+            {
+               
+            }          
         }
 
         public void listCategories()

@@ -135,7 +135,7 @@ namespace TwitterViewer
         public static void createNewXML()
         {
             XmlDocument doc = new XmlDocument();
-            doc.LoadXml("<categories><category categoryname='Test'><users></users></category></categories>");
+            doc.LoadXml("<categories><category categoryname='News'><users></users></category></categories>");
             XmlTextWriter writer = new XmlTextWriter(TwitterViewer.Properties.Settings.Default.CategoriesXML, null);
             writer.Formatting = System.Xml.Formatting.Indented;
             doc.Save(writer);
