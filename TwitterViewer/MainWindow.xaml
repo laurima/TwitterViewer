@@ -53,7 +53,9 @@
                     <!-- Categories appears here -->
                     <ListView Style="{StaticResource listStyle}" 
                          x:Name="lw_categories"
-                         ItemsSource="{Binding}" SelectionChanged="lw_categories_SelectionChanged"
+                         ItemsSource="{Binding}" 
+                         SelectionChanged="lw_categories_SelectionChanged"
+                         MaxHeight="416"
                          />
                     <Button x:Name="btn_updatecategories" 
                         Content="Update" 

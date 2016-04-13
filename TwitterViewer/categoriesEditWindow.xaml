@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TwitterViewer"
         mc:Ignorable="d"
-        Title="Edit categories" SizeToContent="WidthAndHeight">
+        Title="Edit categories" SizeToContent="Width" Height="400">
     <Window.Resources>
         <ResourceDictionary Source="appearanceDictionary.xaml"></ResourceDictionary>
     </Window.Resources>
@@ -30,7 +30,9 @@
                 <ListView Style="{StaticResource listStyle}"
                     VerticalAlignment="Bottom"
                     x:Name="lw_categories"
-                    ItemsSource="{Binding}" SelectionChanged="lw_categories_SelectionChanged"
+                    ItemsSource="{Binding}" 
+                    SelectionChanged="lw_categories_SelectionChanged"
+                    MaxHeight="217"
                     />
                 <TextBox x:Name="tb_addcategory"></TextBox>
                 <Button x:Name="btn_addcategory" 
@@ -46,12 +48,14 @@
                         Margin="10,0,10,10"
                         />
             </StackPanel>
-            <StackPanel>
+            <StackPanel Height="315" VerticalAlignment="Top">
                 <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center">Users in category</TextBlock>
                 <ListView Style="{StaticResource listStyle}"
                     VerticalAlignment="Stretch"
                     x:Name="lw_usersincategory"
                     ItemTemplate="{StaticResource followerTemplate}"
+                    MaxHeight="230"
+                    Width="200"
                     />
                 <Button x:Name="btn_addusertocategory" 
                         Content="Add user to category" 

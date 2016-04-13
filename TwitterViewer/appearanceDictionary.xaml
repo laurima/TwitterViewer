@@ -43,7 +43,7 @@
                            />
             </StackPanel>
         </DataTemplate>
-    <Style x:Key="listStyle" TargetType="ListBox">
+    <Style x:Key="listStyle" TargetType="ListView">
         <Setter Property="Background" Value="LightBlue" />
         <Setter Property="Padding" Value="8,4" />
         <Setter Property="Margin" Value="4" />

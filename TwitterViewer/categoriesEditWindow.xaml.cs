@@ -80,17 +80,33 @@ namespace TwitterViewer
 
         private void btn_removecategory_Click(object sender, RoutedEventArgs e)
         {
-            string category = lw_categories.SelectedItem.ToString();
-            BLTwitterViewer.removeCategory(category);
-            listCategories();
+            try
+            {
+                string category = lw_categories.SelectedItem.ToString();
+                BLTwitterViewer.removeCategory(category);
+                listCategories();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Deletion of the category failed");
+            }
         }
 
         private void btn_addusertocategory_Click(object sender, RoutedEventArgs e)
         {
-            string category = lw_categories.SelectedItem.ToString();
-            User user = new User(lw_followedusers.SelectedItem.ToString().Split()[1]);
-            BLTwitterViewer.addUserToCategory(category, user);
-            listUsersInCategory(category);
+            try
+            {
+                string category = lw_categories.SelectedItem.ToString();
+                User user = new User(lw_followedusers.SelectedItem.ToString().Split()[1]);
+                BLTwitterViewer.addUserToCategory(category, user);
+                listUsersInCategory(category);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Please select user and category.");
+            }
         }
 
         private void btn_deluserfromcategory_Click(object sender, RoutedEventArgs e)
